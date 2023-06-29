@@ -1,15 +1,14 @@
 /** @format */
 
-import { getSession } from 'next-auth/react';
+import { getToken } from 'next-auth/jwt';
 import Order from '@/Models/Order';
-import db from '@/pages/utils/db';
+import db from '@/utils/db';
 
 const handler = async (req, res) => {
-  const session = await getSession({ req });
-  if (!session) {
+  const user = await getToken({ req });
+  if (!user) {
     return res.status(401).send('Error: signin required');
   }
-
   await db.connect();
   const order = await Order.findById(req.query.id);
   if (order) {
@@ -31,5 +30,4 @@ const handler = async (req, res) => {
     res.status(404).send({ message: 'Error: order not found' });
   }
 };
-
 export default handler;

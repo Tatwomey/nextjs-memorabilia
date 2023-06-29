@@ -1,14 +1,14 @@
 /** @format */
 import axios from 'axios';
-import Image from "next/image";
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
-import Layout from '../components/Layout';
-import Product from '@/Models/product';
-import db from '../utils/db';
-import { Store } from '../utils/Store';
+import Layout from '@/components/Layout';
+import Product from '@/Models/Product';
+import db from '@/utils/db';
+import { Store } from '@/utils/Store';
 
 export default function ProductScreen(props) {
   const { product } = props;
@@ -47,9 +47,10 @@ export default function ProductScreen(props) {
             height={640}
             sizes="100vw"
             style={{
-              width: "100%",
-              height: "auto"
-            }}></Image>
+              width: '100%',
+              height: 'auto',
+            }}
+          ></Image>
         </div>
         <div>
           <ul>

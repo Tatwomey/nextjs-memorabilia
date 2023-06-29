@@ -3,12 +3,12 @@
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
-import CheckOutWizard from './components/CheckOutWizard';
-import Layout from './components/Layout';
-import { Store } from './utils/Store';
+import CheckOutWizard from '@/components/CheckoutWizard';
+import Layout from '@/components/Layout';
+import { Store } from '@/utils/Store';
 import { useRouter } from 'next/router';
 
-export default function shippingScreen() {
+export default function ShippingScreen() {
   const {
     handleSubmit,
     register,
@@ -47,6 +47,7 @@ export default function shippingScreen() {
         },
       })
     );
+
     router.push('/payment');
   };
 
@@ -133,4 +134,4 @@ export default function shippingScreen() {
   );
 }
 
-shippingScreen.auth = true;
+ShippingScreen.auth = true;

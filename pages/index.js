@@ -1,13 +1,12 @@
 /** @format */
-
 import axios from 'axios';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
-import Layout from './components/Layout';
-import ProductItem from './components/ProductItem';
-import Product from '@/Models/product';
-import db from './utils/db';
-import { Store } from './utils/Store';
+import Layout from '@/components/Layout';
+import ProductItem from '@/components/ProductItem';
+import Product from 'models/Product';
+import db from '@/utils/db';
+import { Store } from '@/utils/Store';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Link from 'next/link';
@@ -34,12 +33,8 @@ export default function Home({ products, featuredProducts }) {
       <Carousel showThumbs={false} autoPlay>
         {featuredProducts.map((product) => (
           <div key={product._id}>
-            <Link
-              href={`/product/${product.slug}`}
-              passHref
-              className="flex"
-              legacyBehavior>
-              <image src={product.banner} alt={product.name} />
+            <Link href={`/product/${product.slug}`} passHref className="flex">
+              <img src={product.banner} alt={product.name} />
             </Link>
           </div>
         ))}

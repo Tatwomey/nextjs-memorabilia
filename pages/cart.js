@@ -1,11 +1,11 @@
 /** @format */
 
-import Image from "next/image";
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
-import Layout from './components/Layout';
-import { Store } from './utils/Store';
+import Layout from '@/components/Layout';
+import { Store } from '@/utils/Store';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
@@ -22,7 +22,7 @@ function CartScreen() {
   };
   const updateCartHandler = async (item, qty) => {
     const quantity = Number(qty);
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`/api/products/${item}`);
     if (data.countInStock < quantity) {
       return toast.error('Sorry. Product is out of stock');
     }
@@ -34,8 +34,7 @@ function CartScreen() {
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/" passHref legacyBehavior>
-            <div>Go shopping</div></Link>
+          Cart is empty. <Link href="/">Go shopping</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
@@ -53,10 +52,11 @@ function CartScreen() {
                 {cartItems.map((item) => (
                   <tr key={item.slug} className="border-b">
                     <td>
-                       <Link href={`/product/${item.slug}`}
-                       passHref legacyBehavior
-                       className="flex items-center"
-                       ><div>
+                      <Link
+                        href={`/product/${item.slug}`}
+                        passHref
+                        className="flex items-center"
+                      >
                         <Image
                           src={item.image}
                           alt={item.name}
@@ -68,10 +68,7 @@ function CartScreen() {
                           }}
                         ></Image>
                         {item.name}
-                        </div>
-                        
                       </Link>
-                    
                     </td>
                     <td className="p-5 text-right">
                       <select

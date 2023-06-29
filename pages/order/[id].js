@@ -1,15 +1,18 @@
 /** @format */
 
-import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import {
+  PayPalButtons,
+  usePayPalScriptReducer,
+} from '@paypal/react-paypal-js';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
-import Image from "next/image";
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
-import Layout from '@/pages/components/Layout';
-import { getError } from '@/pages/utils/error';
+import Layout from '@/components/Layout';
+import { getError } from '@/utils/error';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -219,10 +222,10 @@ function OrderScreen() {
                   {orderItems.map((item) => (
                     <tr key={item._id} className="border-b">
                       <td>
-                        <Link 
+                        <Link
                           href={`/product/${item.slug}`}
-                          passHref legacyBehavior
-                          className="flex items-center" >
+                          className="flex items-center"
+                        >
                           <Image
                             src={item.image}
                             alt={item.name}
@@ -231,8 +234,8 @@ function OrderScreen() {
                             style={{
                               maxWidth: '100%',
                               height: 'auto',
-                              
-                            }}></Image>
+                            }}
+                          ></Image>
                           {item.name}
                         </Link>
                       </td>

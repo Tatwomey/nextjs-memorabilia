@@ -1,6 +1,8 @@
+/** @format */
+
 import bcryptjs from 'bcryptjs';
 import User from '@/Models/User';
-import db from '@/pages/utils/db';
+import db from '@/utils/db';
 
 async function handler(req, res) {
   if (req.method !== 'POST') {

@@ -5,15 +5,15 @@ const data = {
   users: [
     {
       name: 'Andrew',
-      email: 'andrew@example.com',
-      password: bcrypt.hashSync('123456'),
+      email: 'andrew@gmail.com',
+      password: bcrypt.hashSync('andrew123'),
       isAdmin: true,
     },
     {
       name: 'Trevor',
-      email: 'trevor@example.com',
-      password: bcrypt.hashSync('123456'),
-      isAdmin: false,
+      email: 'trevor@gmail.com',
+      password: bcrypt.hashSync('trevor123'),
+      isAdmin: true,
     },
   ],
   products: [
@@ -23,11 +23,12 @@ const data = {
       category: 'Music',
       image: '/images/photo1.jpg',
       price: 200,
-      brand: 'Korn',
+      band: 'Korn',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
-      description:' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      description:
+        ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
     },
     {
       name: 'Brian ESP',
@@ -35,11 +36,13 @@ const data = {
       category: 'Music',
       image: '/images/photo2.jpg',
       price: 250,
-      brand: "Brian Head Welch. taken during Korn's 20th anniversary of their platinum selling album 'Follow The leader' ",
+      band:
+        "Brian Head Welch. taken during Korn's 20th anniversary of their platinum selling album 'Follow The leader' ",
       rating: 4.2,
       numReviews: 10,
       countInStock: 20,
-      description: '"16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      description:
+        '"16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
     },
     {
       name: 'Ray Luzier double exposure',
@@ -47,19 +50,20 @@ const data = {
       category: 'Music',
       image: '/images/photo3.jpg',
       price: 90,
-      brand: 'Raymond',
+      band: 'Raymond',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
-      description: ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Signed and numbered edition of 20.',
+      description:
+        ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Signed and numbered edition of 20.',
     },
     {
       name: 'Munk-Gltch',
-      slug: 'munk-glitch1',
+      slug: 'munk-glitch',
       category: 'Music',
       image: '/images/photo4.jpg',
       price: 250,
-      brand: 'James Munky Shaffer',
+      band: 'James Munky Shaffer',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
@@ -67,15 +71,16 @@ const data = {
     },
     {
       name: 'Munk-Glitch Original',
-      slug: 'munk-glitch',
+      slug: 'munky-glitch',
       category: 'Print',
-      image: '/images/photo5.png',
+      image: '/images/munk-glitch.png',
       price: 95,
-      brand: 'James Munky Shaffer (KORN)' ,
+      band: 'James Munky Shaffer (KORN)',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
-      description:'A popular print "16x20" on Hahnemühle Photo Rag Metallic Paper.',
+      description:
+        'A popular print "16x20" on Hahnemühle Photo Rag Metallic Paper.',
     },
     {
       name: 'Gotham City',
@@ -83,12 +88,14 @@ const data = {
       category: 'Urban Landscape',
       image: '/images/photo6.png',
       price: 75,
-      brand: 'Casely',
+      band: 'Casely',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
-      description: 'A popular print "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      description:
+        'A popular print "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
     },
   ],
 };
+
 export default data;

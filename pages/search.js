@@ -4,12 +4,12 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
-import Layout from './components/Layout';
-import { Store } from './utils/Store';
+import Layout from '@/components/Layout';
+import { Store } from '@/utils/Store';
 import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
-import ProductItem from './components/ProductItem';
-import Product from '@/Models/product';
-import db from './utils/db';
+import ProductItem from '@/components/ProductItem';
+import Product from '@/Models/Product';
+import db from '@/utils/db';
 
 const PAGE_SIZE = 2;
 
@@ -124,7 +124,7 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Brands</h2>
+            <p><h2>Brands</h2></p>
             <select className="w-full" value={brand} onChange={brandHandler}>
               <option value="all">All</option>
               {brands &&
@@ -136,7 +136,7 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Prices</h2>
+           <p><h2>Prices</h2></p>
             <select className="w-full" value={price} onChange={priceHandler}>
               <option value="all">All</option>
               {prices &&
@@ -148,7 +148,7 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Ratings</h2>
+            <p><h2>Ratings</h2></p>
             <select className="w-full" value={rating} onChange={ratingHandler}>
               <option value="all">All</option>
               {ratings &&

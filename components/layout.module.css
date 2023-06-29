@@ -1,0 +1,19 @@
+/* layout.module.css */
+
+.layoutContainer {
+    background-image: url('/images/Film_Burn_Grain27.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  @font-face {
+    font-family: 'Califas Demo';
+    src: url('/public/fonts/Califas Demo.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  
+  

@@ -3,8 +3,8 @@
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useReducer } from 'react';
-import Layout from './components/Layout';
-import { getError } from './utils/error';
+import Layout from '@/components/Layout';
+import { getError } from '@/utils/error';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -75,7 +75,7 @@ function OrderHistoryScreen() {
                   </td>
                   <td className=" p-5 ">
                     <Link href={`/order/${order._id}`} passHref>
-                      Details
+                     <p> Details</p>
                     </Link>
                   </td>
                 </tr>

@@ -1,7 +1,9 @@
+/** @format */
+import { getToken } from 'next-auth/jwt';
 import bcryptjs from 'bcryptjs';
 import User from '@/Models/User';
-import db from '@/pages/utils/db';
-import { getToken } from 'next-auth/jwt';
+import db from '@/utils/db';
+
 
 async function handler(req, res) {
   if (req.method !== 'PUT') {

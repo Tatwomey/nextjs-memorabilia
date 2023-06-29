@@ -12,10 +12,10 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from  'chart.js';
 import React, { useEffect, useReducer } from 'react';
-import Layout from '../../components/Layout';
-import { getError } from '../../utils/error';
+import Layout from '@/components/Layout';
+import { getError } from '@/utils/error';
 
 ChartJS.register(
   CategoryScale,
@@ -69,12 +69,12 @@ function AdminDashboardScreen() {
   }, []);
 
   const data = {
-    labels: summary.salesData.map((x) => x._id), // 2022/01 2022/03
+    labels: summary?.salesData?.map((x) => x._id)|| [], // 2022/01 2022/03
     datasets: [
       {
         label: 'Sales',
         backgroundColor: 'rgba(162, 222, 208, 1)',
-        data: summary.salesData.map((x) => x.totalSales),
+        data: summary?.salesData?.map((x) => x.totalSales) || [],
       },
     ],
   };
@@ -89,13 +89,13 @@ function AdminDashboardScreen() {
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders">Orders</Link>
+              <Link href="/admin/orders"> <div>Orders</div></Link>
             </li>
             <li>
-              <Link href="/admin/products">Products</Link>
+              <Link href="/admin/products"><div>Products</div></Link>
             </li>
             <li>
-              <Link href="/admin/users">Users</Link>
+              <Link href="/admin/users"><div>Users</div></Link>
             </li>
           </ul>
         </div>

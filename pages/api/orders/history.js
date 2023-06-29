@@ -1,6 +1,8 @@
+/** @format */
+
 import { getToken } from 'next-auth/jwt';
 import Order from '@/Models/Order';
-import db from '@/pages/utils/db';
+import db from '@/utils/db';
 
 const handler = async (req, res) => {
   const user = await getToken({ req });
@@ -14,4 +16,3 @@ const handler = async (req, res) => {
 };
 
 export default handler;
-

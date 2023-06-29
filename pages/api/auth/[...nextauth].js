@@ -3,7 +3,8 @@ import bcryptjs from 'bcryptjs';
 import NextAuth from 'next-auth/next';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import User from '@/Models/User';
-import db from '@/pages/utils/db';
+import db from '@/utils/db';
+
 export default NextAuth({
   session: {
     strategy: 'jwt',
