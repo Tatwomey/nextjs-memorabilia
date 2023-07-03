@@ -31,12 +31,12 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: white; /* Add this line to set the font color to white */
+  color: white;
 }
 
 a {
   @apply text-blue-600 hover:text-blue-800;
-  color: inherit; /* Add this line to inherit the font color from the parent */
+  /* color: inherit; - Remove this line */
 }
 
 * {

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '@/components/Layout';
 import ProductItem from '@/components/ProductItem';
-import Product from 'models/Product';
+import Product from '@/Models/Product';
 import db from '@/utils/db';
 import { Store } from '@/utils/Store';
 import { Carousel } from 'react-responsive-carousel';
