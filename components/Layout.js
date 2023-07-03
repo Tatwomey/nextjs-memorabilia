@@ -114,7 +114,7 @@ export default function Layout({ title, children }) {
                       </Menu.Item>
                     )}
                     <Menu.Item>
-                      <a legacyBehavior
+                      <a legacybehavior
                         className="dropdown-link"
                         href="#"
                         onClick={logoutClickHandler}
