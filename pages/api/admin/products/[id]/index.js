@@ -1,5 +1,3 @@
-/** @format */
-
 import { getToken } from 'next-auth/jwt';
 import Product from '@/Models/Product';
 import db from '@/utils/db';

@@ -15,6 +15,8 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
     "@material-ui/core": "^4.12.4",
+    "@material-ui/types": "^5.1.0",
+    "@material/snackbar": "^14.0.0",
     "@mui/material": "^5.12.1",
     "@paypal/react-paypal-js": "^7.8.3",
     "@pkgr/utils": "^2.3.1",
@@ -29,9 +31,12 @@
     "cloudinary": "^1.36.2",
     "eslint": "8.37.0",
     "js-cookie": "^3.0.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.4",
+    "nc": "^1.0.3",
     "next": "^13.3.0",
     "next-auth": "^4.22.1",
+    "next-connect": "^1.0.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -42,12 +47,11 @@
     "react-toastify": "^9.1.2"
   },
   "devDependencies": {
-    "@types/react": "^18.0.37",
+    "@types/react": "^18.0.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "8.38.0",
     "eslint-config-next": "^13.3.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.22",
     "tailwindcss": "^3.3.1"
-  }
-}
+  }}
+  

@@ -23,7 +23,7 @@ const data = {
       category: 'Music',
       image: '/images/photo1.jpg',
       price: 200,
-      band: 'Korn',
+      brand: 'Korn',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
