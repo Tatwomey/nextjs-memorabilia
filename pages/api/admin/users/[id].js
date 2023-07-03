@@ -17,17 +17,17 @@ const handler = async (req, res) => {
 
 const deleteHandler = async (req, res) => {
   await db.connect();
-  const user = await User.findById(req.query.id);
-  if (user) {
+  const user = await User.deleteOne({ _id: req.query.id });
+  if (user.deletedCount > 0) {
     if (user.email === 'admin@example.com') {
-      return res.status(400).send({ message: 'Can not delete admin' });
+      await db.disconnect();
+      return res.status(400).send({ message: 'Cannot delete admin' });
     }
-    await user.remove();
     await db.disconnect();
-    res.send({ message: 'User Deleted' });
+    return res.send({ message: 'User Deleted' });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'User Not Found' });
+    return res.status(404).send({ message: 'User Not Found' });
   }
 };
 
