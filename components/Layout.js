@@ -1,5 +1,5 @@
 /** @format */
-import styles from './layout.module.css';
+import styles from './Layout.module.css';
 import Image from 'next/image';
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';

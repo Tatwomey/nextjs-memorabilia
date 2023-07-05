@@ -1,7 +1,6 @@
 /** @format */
 
 import axios from 'axios';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
@@ -112,7 +111,7 @@ export default function PlaceOrderScreen() {
                           href={`/product/${item.slug}`}
                           className="flex items-center"
                         >
-                          <Image
+                          <img
                             src={item.image}
                             alt={item.name}
                             width={50}
@@ -121,7 +120,7 @@ export default function PlaceOrderScreen() {
                               maxWidth: '100%',
                               height: 'auto',
                             }}
-                          ></Image>
+                          ></img>
                           {item.name}
                         </Link>
                       </td>

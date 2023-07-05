@@ -1,6 +1,6 @@
 /** @format */
 
-import Image from 'next/image';
+
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
@@ -57,7 +57,7 @@ function CartScreen() {
                         passHref
                         className="flex items-center"
                       >
-                        <Image
+                        <img
                           src={item.image}
                           alt={item.name}
                           width={50}
@@ -66,7 +66,7 @@ function CartScreen() {
                             maxWidth: '100%',
                             height: 'auto',
                           }}
-                        ></Image>
+                        ></img>
                         {item.name}
                       </Link>
                     </td>

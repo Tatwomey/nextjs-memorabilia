@@ -22,6 +22,7 @@ const data = {
       slug: 'jd-1',
       category: 'Music',
       image: '/images/photo1.jpg',
+      width: 1000,
       price: 200,
       brand: 'Korn',
       rating: 4.5,
