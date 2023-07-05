@@ -2,41 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Beastmode';
-  src: url('/fonts/beastmode.woff2') format('woff2'),
-       url('/fonts/beastmode.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Brutal Tooth';
-  src: url('/fonts/brutal-tooth.woff2') format('woff2'),
-       url('/fonts/brutal-tooth.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Califas Demo';
-  src: url('/fonts/califas-demo.woff2') format('woff2'),
-       url('/fonts/califas-demo.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/montserrat.woff2') format('woff2'),
-       url('/fonts/montserrat.woff') format('woff');
-}
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
   @apply text-blue-600 hover:text-blue-800;
-  /* color: inherit; - Remove this line */
 }
 
 * {
@@ -44,22 +19,20 @@ a {
 }
 
 .card {
-  @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
+  @apply mb-5  block   rounded-lg border border-gray-200  shadow-md;
 }
 
 .primary-button {
-  @apply rounded bg-black py-2 px-4 text-white shadow outline-none hover:bg-blue-600 active:bg-gray-100;
-  font-family: 'Califas Demo';
+  @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400  active:bg-amber-500;
 }
-
 .default-button {
-  @apply rounded bg-gray-100 py-2 px-4 text-black shadow outline-none hover:bg-gray-200 active:bg-gray-300;
+  @apply rounded bg-gray-100 py-2  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
 }
 
 input,
 select,
 textarea {
-  @apply rounded border p-2 outline-none text-black focus:ring;
+  @apply rounded border p-2  outline-none ring-indigo-300  focus:ring;
 }
 
 .dropdown-link {
