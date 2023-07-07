@@ -1,6 +1,6 @@
 /** @format */
+import React, { useContext } from 'react';
 import axios from 'axios';
-import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '@/components/Layout';
 import ProductItem from '@/components/ProductItem';
@@ -8,11 +8,9 @@ import Product from '@/Models/Product';
 import db from '@/utils/db';
 import { Store } from '@/utils/Store';
 import { Carousel } from 'react-responsive-carousel';
-
 import Link from 'next/link';
 
-
-export default function Home({ products, featuredProducts }) {
+const Home = ({ products, featuredProducts }) => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -52,6 +50,10 @@ export default function Home({ products, featuredProducts }) {
       </div>
     </Layout>
   );
+};
+
+export default function HomePage(props) {
+  return <Home {...props} />;
 }
 
 export async function getServerSideProps() {
