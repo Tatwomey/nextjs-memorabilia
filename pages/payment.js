@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 
 import Layout from '@/components/Layout';
 import { Store } from '@/utils/Store';
-import CheckoutWizard from '../components/CheckoutWizard';
+import CheckoutWizard from '@/components/CheckoutWizard';
 
 export default function PaymentScreen() {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');

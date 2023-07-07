@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import Layout from '@/components/Layout';
 import { getError } from '@/utils/error';
 import { Store } from '@/utils/Store';
-import CheckoutWizard from '../components/CheckoutWizard';
+import CheckoutWizard from '@/components/CheckoutWizard';
 
 export default function PlaceOrderScreen() {
   const { state, dispatch } = useContext(Store);
