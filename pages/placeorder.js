@@ -6,10 +6,11 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import CheckoutWizard from '../components/CheckoutWizard';
+
 import Layout from '@/components/Layout';
 import { getError } from '@/utils/error';
 import { Store } from '@/utils/Store';
+import CheckoutWizard from '../components/CheckoutWizard';
 
 export default function PlaceOrderScreen() {
   const { state, dispatch } = useContext(Store);
