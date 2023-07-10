@@ -1,10 +1,9 @@
-/** @format */
-
 import axios from 'axios';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useReducer } from 'react';
-import Layout from '@/components/Layout';
-import { getError } from '@/utils/error';
+import { getError } from '../utils/error';
+import Layout from '../components/Layout';
+import Link from 'next/link';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -15,10 +14,13 @@ function reducer(state, action) {
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
-      return state;
+      state;
   }
 }
-function OrderHistoryScreen() {
+
+function OrderHistory() {
+  const router = useRouter();
+
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     orders: [],
@@ -36,10 +38,10 @@ function OrderHistoryScreen() {
       }
     };
     fetchOrders();
-  }, []);
+  }, [router]);
   return (
-    <Layout title="Order History">
-      <h1 className="mb-4 text-xl">Order History</h1>
+    <Layout title="Profile">
+      <h1>Order History</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -75,7 +77,7 @@ function OrderHistoryScreen() {
                   </td>
                   <td className=" p-5 ">
                     <Link href={`/order/${order._id}`} passHref>
-                      Details
+                      <a>Details</a>
                     </Link>
                   </td>
                 </tr>
@@ -87,6 +89,5 @@ function OrderHistoryScreen() {
     </Layout>
   );
 }
-
-OrderHistoryScreen.auth = true;
-export default OrderHistoryScreen;
+OrderHistory.auth = true;
+export default OrderHistory;
