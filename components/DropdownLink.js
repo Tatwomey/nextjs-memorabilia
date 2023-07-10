@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 
-const DropdownLink = React.forwardRef(({ href, children, ...rest }, ref) => {
+export default function DropdownLink(props) {
+  let { href, children, ...rest } = props;
   return (
-    <Link href={href} ref={ref} {...rest}>
+    <Link href={href} {...rest}>
       {children}
     </Link>
   );
-});
-
-export default DropdownLink;
+}
