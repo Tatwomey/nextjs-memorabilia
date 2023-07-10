@@ -1,11 +1,9 @@
-/** @format */
-
-
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
-import Layout from '@/components/Layout';
-import { Store } from '@/utils/Store';
+import Layout from '../components/Layout';
+import { Store } from '../utils/Store';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
@@ -22,7 +20,7 @@ function CartScreen() {
   };
   const updateCartHandler = async (item, qty) => {
     const quantity = Number(qty);
-    const { data } = await axios.get(`/api/products/${item}`);
+    const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       return toast.error('Sorry. Product is out of stock');
     }
@@ -54,10 +52,9 @@ function CartScreen() {
                     <td>
                       <Link
                         href={`/product/${item.slug}`}
-                        passHref
                         className="flex items-center"
                       >
-                        <img
+                        <Image
                           src={item.image}
                           alt={item.name}
                           width={50}
@@ -66,7 +63,7 @@ function CartScreen() {
                             maxWidth: '100%',
                             height: 'auto',
                           }}
-                        ></img>
+                        ></Image>
                         {item.name}
                       </Link>
                     </td>
