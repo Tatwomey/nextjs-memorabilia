@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     backgroundColor: '#203040',
     '& a': {
-      color: '#000000',
+      color: '#FFFFFF',
       marginLeft: 10,
     },
   },
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchInput: {
     paddingLeft: 5,
-    color: '#000000',
+    color: '#FFFFFF',
     '& ::placeholder': {
       color: '#606060',
     },
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 5,
     borderRadius: '0 5px 5px 0',
     '& span': {
-      color: '#000000',
+      color: 'FFFFFF',
     },
   },
   sort: {
