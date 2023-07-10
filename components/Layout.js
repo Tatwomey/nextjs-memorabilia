@@ -51,8 +51,8 @@ export default function Layout({ title, children }) {
       <div className={`${styles.layoutContainer} flex min-h-screen flex-col justify-between `}>
         <header>
           <nav className="flex h-15 items-center px-5 justify-between shadow-md">
-            <Link href="/" className="text-lg font-bold">
-            <Image src="/images/Watermarklogott.png" width="150" height="100" alt="Logo" />
+            <Link href="/" className="text-lg font-bold"> 
+              <Image src="/images/Watermarklogott.png" width="150" height="100" alt="Logo" />
             </Link>
             <form
               onSubmit={submitHandler}
@@ -114,7 +114,7 @@ export default function Layout({ title, children }) {
                       </Menu.Item>
                     )}
                     <Menu.Item>
-                      <a legacyBehavior
+                      <a
                         className="dropdown-link"
                         href="#"
                         onClick={logoutClickHandler}
@@ -134,7 +134,7 @@ export default function Layout({ title, children }) {
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>Copyright © 2023 Trevor Twomey</p>
+          <span>Copyright © 2023 Trevor Twomey</span>
         </footer>
       </div>
     </>
