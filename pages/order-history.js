@@ -14,7 +14,7 @@ function reducer(state, action) {
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
-      state;
+      return state;
   }
 }
 
@@ -39,6 +39,7 @@ function OrderHistory() {
     };
     fetchOrders();
   }, [router]);
+
   return (
     <Layout title="Profile">
       <h1>Order History</h1>
@@ -62,22 +63,22 @@ function OrderHistory() {
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id} className="border-b">
-                  <td className=" p-5 ">{order._id.substring(20, 24)}</td>
-                  <td className=" p-5 ">{order.createdAt.substring(0, 10)}</td>
-                  <td className=" p-5 ">${order.totalPrice}</td>
-                  <td className=" p-5 ">
+                  <td className="p-5 ">{order._id.substring(20, 24)}</td>
+                  <td className="p-5 ">{order.createdAt.substring(0, 10)}</td>
+                  <td className="p-5 ">${order.totalPrice}</td>
+                  <td className="p-5 ">
                     {order.isPaid
                       ? `${order.paidAt.substring(0, 10)}`
                       : 'not paid'}
                   </td>
-                  <td className=" p-5 ">
+                  <td className="p-5 ">
                     {order.isDelivered
                       ? `${order.deliveredAt.substring(0, 10)}`
                       : 'not delivered'}
                   </td>
-                  <td className=" p-5 ">
+                  <td className="p-5 ">
                     <Link href={`/order/${order._id}`} passHref>
-                      <a>Details</a>
+                      <Link.Element>Details</Link.Element>
                     </Link>
                   </td>
                 </tr>
@@ -89,5 +90,7 @@ function OrderHistory() {
     </Layout>
   );
 }
+
 OrderHistory.auth = true;
+
 export default OrderHistory;
