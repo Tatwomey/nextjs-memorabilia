@@ -1,11 +1,9 @@
-/** @format */
-
 import axios from 'axios';
-import Link from 'next/link';
 import React, { useEffect, useReducer } from 'react';
-import { toast } from 'react-toastify';
-import Layout from '@/components/Layout';
 import { getError } from '@/utils/error';
+import Layout from '@/components/Layout';
+import Link from 'next/link';
+import { toast } from 'react-toastify';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -15,6 +13,7 @@ function reducer(state, action) {
       return { ...state, loading: false, users: action.payload, error: '' };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
+
     case 'DELETE_REQUEST':
       return { ...state, loadingDelete: true };
     case 'DELETE_SUCCESS':
@@ -24,16 +23,18 @@ function reducer(state, action) {
     case 'DELETE_RESET':
       return { ...state, loadingDelete: false, successDelete: false };
     default:
-      return state;
+      state;
   }
 }
-function AdminUsersScreen() {
+
+function AdminUsers() {
   const [{ loading, error, users, successDelete, loadingDelete }, dispatch] =
     useReducer(reducer, {
       loading: true,
       users: [],
       error: '',
     });
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,6 +51,7 @@ function AdminUsersScreen() {
       fetchData();
     }
   }, [successDelete]);
+
   const deleteHandler = async (userId) => {
     if (!window.confirm('Are you sure?')) {
       return;
@@ -58,16 +60,16 @@ function AdminUsersScreen() {
       dispatch({ type: 'DELETE_REQUEST' });
       await axios.delete(`/api/admin/users/${userId}`);
       dispatch({ type: 'DELETE_SUCCESS' });
-      toast.success('User deleted successfully');
+      toast.success('Product deleted successfully', { variant: 'success' });
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
-      toast.error(getError(err));
+      toast.error(getError(err), { variant: 'error' });
     }
   };
   return (
     <Layout title="Users">
       <div className="grid md:grid-cols-4 md:gap-5">
-        <div>
+        <div className="">
           <ul>
             <li>
               <Link href="/admin/dashboard">Dashboard</Link>
@@ -79,20 +81,21 @@ function AdminUsersScreen() {
               <Link href="/admin/products">Products</Link>
             </li>
             <li>
-              <Link href="/admin/users" className="font-bold">
-                Users
+              <Link href="/admin/users">
+                <a className="font-bold">Users</a>
               </Link>
             </li>
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
-          <h1 className="mb-4 text-xl">Users</h1>
-          {loadingDelete && <div>Deleting...</div>}
+          <div className="flex justify-between">
+            <h1 className="mb-4 text-xl">Users</h1>
+            {loadingDelete && <div>Deleting...</div>}
+          </div>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
-            <div className="alert-error">{error.message}</div>
-
+            <div className="alert-error">{error}</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full">
@@ -113,18 +116,11 @@ function AdminUsersScreen() {
                       <td className=" p-5 ">{user.email}</td>
                       <td className=" p-5 ">{user.isAdmin ? 'YES' : 'NO'}</td>
                       <td className=" p-5 ">
-                        <Link legacyBehavior href={`/admin/user/${user._id}`} passHref>
-                          <a type="button"
-                           className="default-button"> Edit</a>
-                        
-                   
+                        <Link href={`/admin/user/${user._id}`} passHref>
+                          Edit
                         </Link>
                         &nbsp;
-                        <button
-                          type="button"
-                          className="default-button"
-                          onClick={() => deleteHandler(user._id)}
-                        >
+                        <button onClick={() => deleteHandler(user._id)}>
                           Delete
                         </button>
                       </td>
@@ -139,5 +135,6 @@ function AdminUsersScreen() {
     </Layout>
   );
 }
-AdminUsersScreen.auth = { adminOnly: true };
-export default AdminUsersScreen;
+
+AdminUsers.auth = { adminOnly: true };
+export default AdminUsers;
