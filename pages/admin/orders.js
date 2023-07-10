@@ -1,50 +1,53 @@
-import axios from "axios";
-import Link from "next/link";
-import React, { useEffect, useReducer} from "react";
-import Layout from "@/components/Layout";
-import { getError } from "@/utils/error";
+import axios from 'axios';
+import React, { useEffect, useReducer } from 'react';
+import { getError } from '@/utils/error';
+import Layout from '../../components/Layout';
+import Link from 'next/link';
 
 function reducer(state, action) {
-    switch (action.type) {
-      case 'FETCH_REQUEST':
-        return { ...state, loading: true, error: '' };
-      case 'FETCH_SUCCESS':
-        return { ...state, loading: false, orders: action.payload, error: '' };
-      case 'FETCH_FAIL':
-        return { ...state, loading: false, error: action.payload };
-      default:
-        state;
-    }
+  switch (action.type) {
+    case 'FETCH_REQUEST':
+      return { ...state, loading: true, error: '' };
+    case 'FETCH_SUCCESS':
+      return { ...state, loading: false, orders: action.payload, error: '' };
+    case 'FETCH_FAIL':
+      return { ...state, loading: false, error: action.payload };
+    default:
+      state;
   }
-  export default function AdminOrderScreen() {
-    const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
-      loading: true,
-      orders: [],
-      error: '',
-    });
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            dispatch({ type: 'FETCH_REQUEST' });
-            const { data } = await axios.get(`/api/admin/orders`);
-            dispatch({ type: 'FETCH_SUCCESS', payload: data });
-          } catch (err) {
-            dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
-          }
-        };
-        fetchData();
-      }, []);
-      return (
-        <Layout title="Admin Dashboard">
-          <div className="grid md:grid-cols-4 md:gap-5">
-            <div>
-              <ul>
-                <li>
-                  <Link href="/admin/dashboard">Dashboard</Link>
-                </li>
-                <li>
-                <Link href="/admin/orders" className="font-bold">
-                Orders
+}
+
+function AdminOrders() {
+  const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
+    loading: true,
+    orders: [],
+    error: '',
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        dispatch({ type: 'FETCH_REQUEST' });
+        const { data } = await axios.get(`/api/admin/orders`);
+        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+      } catch (err) {
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <Layout title="Admin Dashboard">
+      <div className="grid md:grid-cols-4 md:gap-5">
+        <div className="">
+          <ul>
+            <li>
+              <Link href="/admin/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <Link href="/admin/orders">
+                <a className="font-bold">Orders</a>
               </Link>
             </li>
             <li>
@@ -56,7 +59,9 @@ function reducer(state, action) {
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
-          <h1 className="mb-4 text-xl">Admin Orders</h1>
+          <div className="flex justify-between">
+            <h1 className="mb-4 text-xl">Admin Orders</h1>
+          </div>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
@@ -98,9 +103,9 @@ function reducer(state, action) {
                       </td>
                       <td className="p-5">
                         <Link href={`/order/${order._id}`} passHref>
-                            Details
+                          <a>Details</a>
                         </Link>
-                        </td>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -112,5 +117,6 @@ function reducer(state, action) {
     </Layout>
   );
 }
-AdminOrderScreen.auth = { adminOnly: true };
-  
+
+AdminOrders.auth = { adminOnly: true };
+export default AdminOrders;
