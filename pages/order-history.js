@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useReducer } from 'react';
 import { getError } from '../utils/error';
 import Layout from '../components/Layout';
-import Link from 'next/link';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -39,6 +38,10 @@ function OrderHistory() {
     };
     fetchOrders();
   }, [router]);
+
+  const handleOrderDetails = (orderId) => {
+    router.push(`/order/${orderId}`);
+  };
 
   return (
     <Layout title="Profile">
@@ -77,9 +80,15 @@ function OrderHistory() {
                       : 'not delivered'}
                   </td>
                   <td className="p-5 ">
-                    <Link href={`/order/${order._id}`} passHref>
-                      <Link.Element>Details</Link.Element>
-                    </Link>
+                    <a
+                      href={`/order/${order._id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleOrderDetails(order._id);
+                      }}
+                    >
+                      Details
+                    </a>
                   </td>
                 </tr>
               ))}
