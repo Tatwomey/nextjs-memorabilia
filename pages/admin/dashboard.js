@@ -1,8 +1,9 @@
-/** @format */
-
 import axios from 'axios';
-import Link from 'next/link';
+import React, { useEffect, useReducer } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { getError } from '../../utils/error';
+import Layout from '../../components/Layout';
+import Link from 'next/link';
 
 import {
   Chart as ChartJS,
@@ -12,10 +13,7 @@ import {
   Title,
   Tooltip,
   Legend,
-} from  'chart.js';
-import React, { useEffect, useReducer } from 'react';
-import Layout from '@/components/Layout';
-import { getError } from '@/utils/error';
+} from 'chart.js';
 
 ChartJS.register(
   CategoryScale,
@@ -47,7 +45,8 @@ function reducer(state, action) {
       state;
   }
 }
-function AdminDashboardScreen() {
+
+function AdminDashboard() {
   const [{ loading, error, summary }, dispatch] = useReducer(reducer, {
     loading: true,
     summary: { salesData: [] },
@@ -64,43 +63,45 @@ function AdminDashboardScreen() {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
     };
-
     fetchData();
   }, []);
 
   const data = {
-    labels: summary?.salesData?.map((x) => x._id)|| [], // 2022/01 2022/03
+    labels: summary.salesData.map((x) => x._id),
     datasets: [
       {
         label: 'Sales',
         backgroundColor: 'rgba(162, 222, 208, 1)',
-        data: summary?.salesData?.map((x) => x.totalSales) || [],
+        data: summary.salesData.map((x) => x.totalSales),
       },
     ],
   };
+
   return (
     <Layout title="Admin Dashboard">
-      <div className="grid  md:grid-cols-4 md:gap-5">
-        <div>
+      <div className="grid  md:grid-cols-4 md:gap-5 ">
+        <div className="">
           <ul>
             <li>
-              <Link href="/admin/dashboard" className="font-bold">
-                Dashboard
+              <Link href="/admin/dashboard">
+                <a className="font-bold">Dashboard</a>
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders"> <div>Orders</div></Link>
+              <Link href="/admin/orders">Orders</Link>
             </li>
             <li>
-              <Link href="/admin/products"><div>Products</div></Link>
+              <Link href="/admin/products">Products</Link>
             </li>
             <li>
-              <Link href="/admin/users"><div>Users</div></Link>
+              <Link href="/admin/users">Users</Link>
             </li>
           </ul>
         </div>
         <div className="md:col-span-3">
-          <h1 className="mb-4 text-xl">Admin Dashboard</h1>
+          <div className="flex justify-between">
+            <h1 className="mb-4 text-xl">Admin Dashboard</h1>
+          </div>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
@@ -144,5 +145,7 @@ function AdminDashboardScreen() {
   );
 }
 
-AdminDashboardScreen.auth = { adminOnly: true };
-export default AdminDashboardScreen;
+AdminDashboard.auth = { adminOnly: true };
+export default AdminDashboard;
+
+// export default dynamic(() => Promise.resolve(AdminDashboard), { ssr: false });
