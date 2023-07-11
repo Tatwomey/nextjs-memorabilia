@@ -1,13 +1,10 @@
-/** @format */
-
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
-
-import Layout from '@/components/Layout';
-import { Store } from '@/utils/Store';
+import CheckoutWizard from '../components/CheckoutWizard';
+import Layout from '../components/Layout';
+import { Store } from '../utils/Store';
 import { useRouter } from 'next/router';
-import CheckoutWizard from '@/components/CheckoutWizard';
 
 export default function ShippingScreen() {
   const {
