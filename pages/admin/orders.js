@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useReducer } from 'react';
-import { getError } from '@/utils/error';
-import Layout from '../../components/Layout';
 import Link from 'next/link';
+import React, { useEffect, useReducer } from 'react';
+import Layout from '../../components/Layout';
+import { getError } from '../../utils/error';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -17,7 +17,7 @@ function reducer(state, action) {
   }
 }
 
-function AdminOrders() {
+export default function AdminOrderScreen() {
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     orders: [],
@@ -40,14 +40,14 @@ function AdminOrders() {
   return (
     <Layout title="Admin Dashboard">
       <div className="grid md:grid-cols-4 md:gap-5">
-        <div className="">
+        <div>
           <ul>
             <li>
               <Link href="/admin/dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link href="/admin/orders">
-                <a className="font-bold">Orders</a>
+              <Link href="/admin/orders" className="font-bold">
+                Orders
               </Link>
             </li>
             <li>
@@ -59,9 +59,8 @@ function AdminOrders() {
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
-          <div className="flex justify-between">
-            <h1 className="mb-4 text-xl">Admin Orders</h1>
-          </div>
+          <h1 className="mb-4 text-xl">Admin Orders</h1>
+
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
@@ -103,7 +102,7 @@ function AdminOrders() {
                       </td>
                       <td className="p-5">
                         <Link href={`/order/${order._id}`} passHref>
-                          <a>Details</a>
+                          Details
                         </Link>
                       </td>
                     </tr>
@@ -118,5 +117,4 @@ function AdminOrders() {
   );
 }
 
-AdminOrders.auth = { adminOnly: true };
-export default AdminOrders;
+AdminOrderScreen.auth = { adminOnly: true };

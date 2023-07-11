@@ -1,5 +1,3 @@
-import styles from './Layout.module.css';
-import Image from 'next/image';
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -8,8 +6,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { Menu } from '@headlessui/react';
 import 'react-toastify/dist/ReactToastify.css';
-import { Store } from '@/utils/Store';
-// import DropdownLink from './DropdownLink';
+import { Store } from '../utils/Store';
+import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
 
@@ -40,18 +38,18 @@ export default function Layout({ title, children }) {
   return (
     <>
       <Head>
-        <title>{title ? title + ' - Memorabilia' : 'Trevor Twomey'}</title>
+        <title>{title ? title + ' - Amazona' : 'Amazona'}</title>
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <ToastContainer position="bottom-center" limit={1} />
 
-      <div className={`${styles.layoutContainer} flex min-h-screen flex-col justify-between `}>
+      <div className="flex min-h-screen flex-col justify-between ">
         <header>
-          <nav className="flex h-15 items-center px-5 justify-between shadow-md">
-            <Link href="/" className="text-lg font-bold"> 
-              <Image src="/images/Watermarklogott.png" width="150" height="100" alt="Logo" />
+          <nav className="flex h-12 items-center px-4 justify-between shadow-md">
+            <Link href="/" className="text-lg font-bold">
+              amazona
             </Link>
             <form
               onSubmit={submitHandler}
@@ -90,26 +88,26 @@ export default function Layout({ title, children }) {
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
                     <Menu.Item>
-                      <Link className="dropdown-link" href="/profile">
+                      <DropdownLink className="dropdown-link" href="/profile">
                         Profile
-                      </Link>
+                      </DropdownLink>
                     </Menu.Item>
                     <Menu.Item>
-                      <Link
+                      <DropdownLink
                         className="dropdown-link"
                         href="/order-history"
                       >
                         Order History
-                      </Link>
+                      </DropdownLink>
                     </Menu.Item>
                     {session.user.isAdmin && (
                       <Menu.Item>
-                        <Link
+                        <DropdownLink
                           className="dropdown-link"
                           href="/admin/dashboard"
                         >
                           Admin Dashboard
-                        </Link>
+                        </DropdownLink>
                       </Menu.Item>
                     )}
                     <Menu.Item>
@@ -133,10 +131,9 @@ export default function Layout({ title, children }) {
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          <span>Copyright © 2023 Trevor Twomey</span>
+          <p>Copyright © 2022 Amazona</p>
         </footer>
       </div>
     </>
   );
 }
-

@@ -1,9 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useReducer } from 'react';
-import { Bar } from 'react-chartjs-2';
-import { getError } from '../../utils/error';
-import Layout from '../../components/Layout';
 import Link from 'next/link';
+import { Bar } from 'react-chartjs-2';
 
 import {
   Chart as ChartJS,
@@ -14,6 +11,9 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import React, { useEffect, useReducer } from 'react';
+import Layout from '../../components/Layout';
+import { getError } from '../../utils/error';
 
 ChartJS.register(
   CategoryScale,
@@ -45,8 +45,7 @@ function reducer(state, action) {
       state;
   }
 }
-
-function AdminDashboard() {
+function AdminDashboardScreen() {
   const [{ loading, error, summary }, dispatch] = useReducer(reducer, {
     loading: true,
     summary: { salesData: [] },
@@ -63,11 +62,12 @@ function AdminDashboard() {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
     };
+
     fetchData();
   }, []);
 
   const data = {
-    labels: summary.salesData.map((x) => x._id),
+    labels: summary.salesData.map((x) => x._id), // 2022/01 2022/03
     datasets: [
       {
         label: 'Sales',
@@ -76,15 +76,14 @@ function AdminDashboard() {
       },
     ],
   };
-
   return (
     <Layout title="Admin Dashboard">
-      <div className="grid  md:grid-cols-4 md:gap-5 ">
-        <div className="">
+      <div className="grid  md:grid-cols-4 md:gap-5">
+        <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">
-                <a className="font-bold">Dashboard</a>
+              <Link href="/admin/dashboard" className="font-bold">
+                Dashboard
               </Link>
             </li>
             <li>
@@ -99,9 +98,7 @@ function AdminDashboard() {
           </ul>
         </div>
         <div className="md:col-span-3">
-          <div className="flex justify-between">
-            <h1 className="mb-4 text-xl">Admin Dashboard</h1>
-          </div>
+          <h1 className="mb-4 text-xl">Admin Dashboard</h1>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
@@ -145,7 +142,5 @@ function AdminDashboard() {
   );
 }
 
-AdminDashboard.auth = { adminOnly: true };
-export default AdminDashboard;
-
-// export default dynamic(() => Promise.resolve(AdminDashboard), { ssr: false });
+AdminDashboardScreen.auth = { adminOnly: true };
+export default AdminDashboardScreen;

@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useReducer } from 'react';
-import { getError } from '@/utils/error';
-import Layout from '@/components/Layout';
 import Link from 'next/link';
+import React, { useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
+import Layout from '../../components/Layout';
+import { getError } from '../../utils/error';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -23,11 +23,11 @@ function reducer(state, action) {
     case 'DELETE_RESET':
       return { ...state, loadingDelete: false, successDelete: false };
     default:
-      state;
+      return state;
   }
 }
 
-function AdminUsers() {
+function AdminUsersScreen() {
   const [{ loading, error, users, successDelete, loadingDelete }, dispatch] =
     useReducer(reducer, {
       loading: true,
@@ -60,16 +60,17 @@ function AdminUsers() {
       dispatch({ type: 'DELETE_REQUEST' });
       await axios.delete(`/api/admin/users/${userId}`);
       dispatch({ type: 'DELETE_SUCCESS' });
-      toast.success('Product deleted successfully', { variant: 'success' });
+      toast.success('User deleted successfully');
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
-      toast.error(getError(err), { variant: 'error' });
+      toast.error(getError(err));
     }
   };
+
   return (
     <Layout title="Users">
       <div className="grid md:grid-cols-4 md:gap-5">
-        <div className="">
+        <div>
           <ul>
             <li>
               <Link href="/admin/dashboard">Dashboard</Link>
@@ -81,17 +82,15 @@ function AdminUsers() {
               <Link href="/admin/products">Products</Link>
             </li>
             <li>
-              <Link href="/admin/users">
-                <a className="font-bold">Users</a>
+              <Link href="/admin/users" className="font-bold">
+                Users
               </Link>
             </li>
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
-          <div className="flex justify-between">
-            <h1 className="mb-4 text-xl">Users</h1>
-            {loadingDelete && <div>Deleting...</div>}
-          </div>
+          <h1 className="mb-4 text-xl">Users</h1>
+          {loadingDelete && <div>Deleting...</div>}
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
@@ -116,11 +115,20 @@ function AdminUsers() {
                       <td className=" p-5 ">{user.email}</td>
                       <td className=" p-5 ">{user.isAdmin ? 'YES' : 'NO'}</td>
                       <td className=" p-5 ">
-                        <Link href={`/admin/user/${user._id}`} passHref>
+                        <Link
+                          href={`/admin/user/${user._id}`}
+                          passHref
+                          type="button"
+                          className="default-button"
+                        >
                           Edit
                         </Link>
                         &nbsp;
-                        <button onClick={() => deleteHandler(user._id)}>
+                        <button
+                          type="button"
+                          className="default-button"
+                          onClick={() => deleteHandler(user._id)}
+                        >
                           Delete
                         </button>
                       </td>
@@ -136,5 +144,5 @@ function AdminUsers() {
   );
 }
 
-AdminUsers.auth = { adminOnly: true };
-export default AdminUsers;
+AdminUsersScreen.auth = { adminOnly: true };
+export default AdminUsersScreen;
