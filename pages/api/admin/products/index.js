@@ -7,23 +7,14 @@ const handler = async (req, res) => {
   if (!user || !user.isAdmin) {
     return res.status(401).send('admin signin required');
   }
-
   if (req.method === 'GET') {
-    return getHandler(req, res, user);
+    return getHandler(req, res);
   } else if (req.method === 'POST') {
-    return postHandler(req, res, user);
+    return postHandler(req, res);
   } else {
     return res.status(400).send({ message: 'Method not allowed' });
   }
 };
-
-const getHandler = async (req, res) => {
-  await db.connect();
-  const products = await Product.find({});
-  await db.disconnect();
-  res.send(products); // Remove this line if you don't need the `products` variable
-};
-
 const postHandler = async (req, res) => {
   await db.connect();
   const newProduct = new Product({
@@ -38,9 +29,15 @@ const postHandler = async (req, res) => {
     rating: 0,
     numReviews: 0,
   });
+
   const product = await newProduct.save();
   await db.disconnect();
   res.send({ message: 'Product created successfully', product });
 };
-
+const getHandler = async (req, res) => {
+  await db.connect();
+  const products = await Product.find({});
+  await db.disconnect();
+  res.send(products);
+};
 export default handler;
