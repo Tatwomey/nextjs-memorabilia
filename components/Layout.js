@@ -50,7 +50,7 @@ export default function Layout({ title, children }) {
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link href="/" className="text-lg font-bold">
-              Trevor Twomey Commerce
+              Trevor Twomey Commerce 2023
             </Link>
             <form
               onSubmit={submitHandler}
