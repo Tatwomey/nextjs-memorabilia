@@ -11,7 +11,7 @@ import { Store } from '../utils/Store';
 import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
-import Watermarklogo from 'public/images/Watermarklogoatermarklogo.png';
+
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -51,7 +51,7 @@ export default function Layout({ title, children }) {
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link href="/" className="text-lg font-bold">
-            <Image src={WatermarkLogo} alt="Watermark Logo" width={120} height={40} />
+              amazona
             </Link>
             <form
               onSubmit={submitHandler}
