@@ -50,7 +50,7 @@ export default function Layout({ title, children }) {
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link href="/" className="text-lg font-bold">
-              amazona
+              Trevor Twomey Commerce
             </Link>
             <form
               onSubmit={submitHandler}
