@@ -1,8 +1,6 @@
-/** @format */
-
 import { getToken } from 'next-auth/jwt';
 import Order from '@/Models/Order';
-import db from '../../../../utils/db';
+import db from '@/utils/db';
 
 const handler = async (req, res) => {
   const user = await getToken({ req });
