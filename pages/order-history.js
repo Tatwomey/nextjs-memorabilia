@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import React, { useEffect, useReducer } from 'react';
-import { getError } from '../utils/error';
 import Layout from '../components/Layout';
+import { getError } from '../utils/error';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -16,10 +16,7 @@ function reducer(state, action) {
       return state;
   }
 }
-
-function OrderHistory() {
-  const router = useRouter();
-
+function OrderHistoryScreen() {
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     orders: [],
@@ -37,15 +34,10 @@ function OrderHistory() {
       }
     };
     fetchOrders();
-  }, [router]);
-
-  const handleOrderDetails = (orderId) => {
-    router.push(`/order/${orderId}`);
-  };
-
+  }, []);
   return (
-    <Layout title="Profile">
-      <h1>Order History</h1>
+    <Layout title="Order History">
+      <h1 className="mb-4 text-xl">Order History</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -66,29 +58,23 @@ function OrderHistory() {
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id} className="border-b">
-                  <td className="p-5 ">{order._id.substring(20, 24)}</td>
-                  <td className="p-5 ">{order.createdAt.substring(0, 10)}</td>
-                  <td className="p-5 ">${order.totalPrice}</td>
-                  <td className="p-5 ">
+                  <td className=" p-5 ">{order._id.substring(20, 24)}</td>
+                  <td className=" p-5 ">{order.createdAt.substring(0, 10)}</td>
+                  <td className=" p-5 ">${order.totalPrice}</td>
+                  <td className=" p-5 ">
                     {order.isPaid
                       ? `${order.paidAt.substring(0, 10)}`
                       : 'not paid'}
                   </td>
-                  <td className="p-5 ">
+                  <td className=" p-5 ">
                     {order.isDelivered
                       ? `${order.deliveredAt.substring(0, 10)}`
                       : 'not delivered'}
                   </td>
-                  <td className="p-5 ">
-                    <a
-                      href={`/order/${order._id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleOrderDetails(order._id);
-                      }}
-                    >
+                  <td className=" p-5 ">
+                    <Link href={`/order/${order._id}`} passHref>
                       Details
-                    </a>
+                    </Link>
                   </td>
                 </tr>
               ))}
@@ -100,6 +86,5 @@ function OrderHistory() {
   );
 }
 
-OrderHistory.auth = true;
-
-export default OrderHistory;
+OrderHistoryScreen.auth = true;
+export default OrderHistoryScreen;

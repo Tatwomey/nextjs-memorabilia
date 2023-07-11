@@ -1,34 +1,39 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Layout from '../components/Layout';
-import { Store } from '../utils/Store';
-import Image from 'next/image';
 import axios from 'axios';
-import { useRouter } from 'next/router';
-import CheckoutWizard from '../components/CheckoutWizard';
-import { getError } from '../utils/error';
-import Cookies from 'js-cookie';
-import { toast } from 'react-toastify';
+import Image from "next/image";
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
+import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import CheckoutWizard from '../components/CheckoutWizard';
+import Layout from '../components/Layout';
+import { getError } from '../utils/error';
+import { Store } from '../utils/Store';
 
 export default function PlaceOrderScreen() {
-  const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const { cartItems, shippingAddress, paymentMethod } = cart;
+
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
+
   const itemsPrice = round2(
-    cartItems.reduce((a, c) => a + c.price * c.quantity, 0)
-  );
+    cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
+  ); // 123.4567 => 123.46
+
   const shippingPrice = itemsPrice > 200 ? 0 : 15;
   const taxPrice = round2(itemsPrice * 0.15);
   const totalPrice = round2(itemsPrice + shippingPrice + taxPrice);
 
+  const router = useRouter();
   useEffect(() => {
     if (!paymentMethod) {
       router.push('/payment');
     }
   }, [paymentMethod, router]);
+
   const [loading, setLoading] = useState(false);
+
   const placeOrderHandler = async () => {
     try {
       setLoading(true);
@@ -56,6 +61,7 @@ export default function PlaceOrderScreen() {
       toast.error(getError(err));
     }
   };
+
   return (
     <Layout title="Place Order">
       <CheckoutWizard activeStep={3} />
@@ -78,7 +84,6 @@ export default function PlaceOrderScreen() {
                 <Link href="/shipping">Edit</Link>
               </div>
             </div>
-
             <div className="card  p-5">
               <h2 className="mb-2 text-lg">Payment Method</h2>
               <div>{paymentMethod}</div>
@@ -86,7 +91,6 @@ export default function PlaceOrderScreen() {
                 <Link href="/payment">Edit</Link>
               </div>
             </div>
-
             <div className="card overflow-x-auto p-5">
               <h2 className="mb-2 text-lg">Order Items</h2>
               <table className="min-w-full">
@@ -102,17 +106,19 @@ export default function PlaceOrderScreen() {
                   {cartItems.map((item) => (
                     <tr key={item._id} className="border-b">
                       <td>
-                        <Link href={`/product/${item.slug}`}>
-                          <a className="flex items-center">
-                            <Image
-                              src={item.image}
-                              alt={item.name}
-                              width={50}
-                              height={50}
-                            ></Image>
-                            &nbsp;
-                            {item.name}
-                          </a>
+                        <Link href={`/product/${item.slug}`} className="flex items-center">
+
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            width={50}
+                            height={50}
+                            style={{
+                              maxWidth: "100%",
+                              height: "auto"
+                            }}></Image>
+                          {item.name}
+
                         </Link>
                       </td>
                       <td className=" p-5 text-right">{item.quantity}</td>
@@ -174,4 +180,5 @@ export default function PlaceOrderScreen() {
     </Layout>
   );
 }
+
 PlaceOrderScreen.auth = true;
