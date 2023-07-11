@@ -8,10 +8,11 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: black; /* Set text color to black */
 }
 
 a {
-  @apply text-blue-600 hover:text-blue-800;
+  @apply text-white hover:text-white; /* Change text color for links */
 }
 
 * {
@@ -19,20 +20,22 @@ a {
 }
 
 .card {
-  @apply mb-5  block   rounded-lg border border-gray-200  shadow-md;
+  @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
 }
 
 .primary-button {
-  @apply rounded bg-white py-2 px-4 shadow outline-none hover:bg-amber-400  active:bg-amber-500;
+  @apply rounded bg-white py-2 px-4 shadow outline-none hover:bg-white text-black; /* Adjust button styles */
 }
+
 .default-button {
-  @apply rounded bg-gray-100 py-2  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
+  @apply rounded bg-gray-100 py-2 px-4 text-black shadow outline-none hover:bg-gray-200 active:bg-gray-300; /* Adjust button styles */
 }
 
 input,
 select,
 textarea {
-  @apply rounded border p-2  outline-none ring-indigo-300  focus:ring;
+  @apply rounded border p-2 outline-none ring-indigo-300 focus:ring;
+  color: black; /* Set input text color to black */
 }
 
 .dropdown-link {
