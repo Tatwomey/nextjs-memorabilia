@@ -1,5 +1,6 @@
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import React, { useContext, useEffect, useState } from 'react';
@@ -10,6 +11,7 @@ import { Store } from '../utils/Store';
 import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
+import Watermarklogott from '../public/images/watermarklogott.png'
 
 
 export default function Layout({ title, children }) {
@@ -48,9 +50,15 @@ export default function Layout({ title, children }) {
 
       <div className="flex min-h-screen flex-col justify-between bg-black text-white">
         <header>
-          <nav className="flex h-12 items-center px-4 justify-between shadow-md">
-            <Link href="/" className="text-lg font-bold">
-              Trevor Twomey Commerce 2023
+          <nav className="flex h-19 items-center px-16 justify-between shadow-md">
+            <div className="flex items-center"></div>
+            <Link href="/" className="text-lg font-bold mr-2">
+            <Image
+                alt="Watermark Logo"
+                src={Watermarklogott}
+                width={210}
+                height={100}
+              />
             </Link>
             <form
               onSubmit={submitHandler}
