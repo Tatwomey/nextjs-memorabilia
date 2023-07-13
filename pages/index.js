@@ -10,6 +10,7 @@ import { Store } from '@/utils/Store';
 import { Carousel } from 'react-responsive-carousel';
 import Link from 'next/link';
 
+
 const Home = ({ products, featuredProducts }) => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;

@@ -11,7 +11,8 @@ import { Store } from '../utils/Store';
 import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
-import Watermarklogott from '../public/images/Watermarklogott.PNG';
+
+
 
 
 export default function Layout({ title, children }) {
@@ -53,12 +54,9 @@ export default function Layout({ title, children }) {
           <nav className="flex h-19 items-center px-16 justify-between shadow-md">
             <div className="flex items-center"></div>
             <Link href="/" className="text-lg font-bold mr-2">
-            <Image
-                alt="Watermark Logo"
-                src={Watermarklogott}
-                width={210}
-                height={100}
-              />
+            <Image src="/images/Watermarklogott.PNG" alt='logo' width={200} height={100} />
+                
+            
             </Link>
             <form
               onSubmit={submitHandler}
