@@ -11,7 +11,7 @@ import { Store } from '../utils/Store';
 import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
-import Watermarklogott from '../public/images/watermarklogott.png'
+import Watermarklogott from '../public/images/Watermarklogott.png'
 
 
 export default function Layout({ title, children }) {
@@ -75,7 +75,7 @@ export default function Layout({ title, children }) {
                 type="submit"
                 id="button-addon2"
               >
-                <SearchIcon className="h-5 w-5"></SearchIcon>
+                <SearchIcon className="h-5 w-10"></SearchIcon>
               </button>
             </form>
             <div className="flex items-center z-10">
