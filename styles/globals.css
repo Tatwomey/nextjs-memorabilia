@@ -55,8 +55,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, Montserrat-Regular, Russian, BureauAgencyFBBold, Beast, CalifasDemo, BrutalTooth, Kremlin, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, CalifasDemo, TibetanBeeggardenAOE, Montserrat-Regular, Russian, BureauAgencyFBBold, Beast, CalifasDemo, BrutalTooth, Kremlin, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: black; /* Set text color to black */
+  
 }
 
 a {
@@ -78,6 +79,7 @@ a {
 
 .default-button {
   @apply rounded bg-gray-100 py-2 px-4 text-black shadow outline-none hover:bg-gray-200 active:bg-gray-300; /* Adjust button styles */
+  font-family: Kremlin;
 }
 
 input,
@@ -93,6 +95,7 @@ textarea {
 
 .alert-error {
   @apply my-3 rounded-lg bg-red-100 p-3 text-red-700;
+ font-family: TibetanBeeggardenAOE
 }
 
 .alert-success {
