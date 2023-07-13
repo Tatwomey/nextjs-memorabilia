@@ -11,7 +11,7 @@ import { Store } from '../utils/Store';
 import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
-import Watermarklogott from '..public/images/Watermarklogott.PNG';
+import Watermarklogott from '../public/images/Watermarklogott.PNG';
 
 
 export default function Layout({ title, children }) {
