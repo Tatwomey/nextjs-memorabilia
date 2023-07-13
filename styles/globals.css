@@ -2,12 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* globals.css */
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/font.ttf') format('truetype');
+  /* Add additional src lines for other font formats */
+  /* Example: src: url('/fonts/font.woff') format('woff'); */
+  /* Example: src: url('/fonts/font.woff2') format('woff2'); */
+}
+
+@font-face {
+  font-family: 'Beast';
+  src: url('/fonts/Beast.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CalifasDemo';
+  src: url('/fonts/Califas Demo.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BrutalTooth';
+  src: url('/fonts/brutal-tooth.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Kremlin';
+  src: url('/fonts/Kremlin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BureauAgencyFBBold';
+  src: url('/fonts/Bureau Agency FB Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'TibetanBeeggardenAOE';
+  src: url('/fonts/Tibetan Beeggarden AOE.TTF') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'Russian';
+  src: url('/fonts/Russian.ttf') format('truetype');
+}
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, Montserrat-Regular, Russian, BureauAgencyFBBold, Beast, CalifasDemo, BrutalTooth, Kremlin, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: black; /* Set text color to black */
 }
 
@@ -25,6 +73,7 @@ a {
 
 .primary-button {
   @apply rounded bg-white py-2 px-4 shadow outline-none hover:bg-white text-black; /* Adjust button styles */
+  font-family: Kremlin;
 }
 
 .default-button {
@@ -49,3 +98,5 @@ textarea {
 .alert-success {
   @apply my-3 rounded-lg bg-green-100 p-3 text-green-700;
 }
+
+
