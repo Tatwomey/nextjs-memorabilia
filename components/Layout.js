@@ -69,7 +69,7 @@ export default function Layout({ title, children }) {
                 placeholder="Search products"
               />
               <button
-                className="rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"
+                className="rounded rounded-tl-none rounded-bl-none bg-white p-1 text-sm dark:text-black"
                 type="submit"
                 id="button-addon2"
               >
