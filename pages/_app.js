@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-  const router = useRouter();
-
   return (
     <SessionProvider session={session}>
       <StoreProvider>
@@ -32,11 +30,9 @@ function Auth({ children, adminOnly }) {
       router.push('/unauthorized?message=login required');
     },
   });
-
   if (status === 'loading') {
     return <div>Loading...</div>;
   }
-
   if (adminOnly && !session.user.isAdmin) {
     router.push('/unauthorized?message=admin login required');
   }
