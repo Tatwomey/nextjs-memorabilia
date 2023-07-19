@@ -28,8 +28,9 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
-      description:
-        ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      description: ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      isFeatured: true,
+      banner: '/images/banner1.jpg'
     },
     {
       name: 'Brian ESP',
@@ -37,13 +38,14 @@ const data = {
       category: 'Music',
       image: '/images/photo2.jpg',
       price: 250,
-      band:
+      brand:
         "Brian Head Welch. taken during Korn's 20th anniversary of their platinum selling album 'Follow The leader' ",
       rating: 4.2,
       numReviews: 10,
       countInStock: 20,
-      description:
-        '"16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      description: '"16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      isFeatured: true,
+      banner: '/images/banner2.jpg'
     },
     {
       name: 'Ray Luzier double exposure',
@@ -51,7 +53,7 @@ const data = {
       category: 'Music',
       image: '/images/photo3.jpg',
       price: 90,
-      band: 'Raymond',
+      brand: 'Raymond',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
@@ -64,7 +66,7 @@ const data = {
       category: 'Music',
       image: '/images/photo4.jpg',
       price: 250,
-      band: 'James Munky Shaffer',
+      brand: 'James Munky Shaffer',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
@@ -76,7 +78,7 @@ const data = {
       category: 'Print',
       image: '/images/munk-glitch.png',
       price: 95,
-      band: 'James Munky Shaffer (KORN)',
+      brand: 'James Munky Shaffer (KORN)',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
@@ -89,7 +91,7 @@ const data = {
       category: 'Urban Landscape',
       image: '/images/photo6.png',
       price: 75,
-      band: 'Casely',
+      brand: 'Casely',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,

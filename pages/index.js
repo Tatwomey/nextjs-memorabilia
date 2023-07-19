@@ -8,6 +8,7 @@ import Product from '@/Models/Product';
 import db from '@/utils/db';
 import { Store } from '@/utils/Store';
 import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.css';
 import Link from 'next/link';
 
 
