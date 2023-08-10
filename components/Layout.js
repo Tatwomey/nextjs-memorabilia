@@ -1,7 +1,7 @@
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next/link'; 
 import Cookies from 'js-cookie';
 import React, { useContext, useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -41,12 +41,12 @@ export default function Layout({ title, children }) {
 
   return (
     <>
-      <Head>
-        <title>{title ? title + ' - Amazona' : 'Amazona'}</title>
-        <meta name="description" content="Ecommerce Website" />
-        <link rel="icon" href="/favicon.ico" />
-       
-      </Head>
+     <Head>
+  <title>{title ? title + ' - Amazona' : 'Trevor Twomey'}</title>
+  <meta name="description" content="Ecommerce Website" />
+  <link rel="icon" href="/images/Watermarklogo 3.png" />
+</Head>
+
 
       <ToastContainer position="bottom-center" limit={1} />
 
