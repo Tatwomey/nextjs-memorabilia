@@ -30,7 +30,7 @@ const Home = ({ products, featuredProducts }) => {
   };
 
   return (
-    <Layout title="Trevor Twomey - Memorabilia">
+    <Layout title="Nu Memorabilia">
       <Carousel showThumbs={false} autoPlay>
         {featuredProducts.map((product) => (
           <div key={product._id}>

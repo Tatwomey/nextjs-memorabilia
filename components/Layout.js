@@ -43,7 +43,7 @@ export default function Layout({ title, children }) {
     <>
      <Head>
   <title>{title ? title + ' - Amazona' : 'Trevor Twomey'}</title>
-  <meta name="description" content="Ecommerce Website" />
+  <meta name="description" content="Nu Metal Memorabilia" />
   <link rel="icon" href="/images/Watermarklogo 3.png" />
 </Head>
 
@@ -139,7 +139,7 @@ export default function Layout({ title, children }) {
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>Copyright © 2023 Trevor Twomey</p>
+          <p>Copyright © 2023 Nu Memorabilia</p>
         </footer>
       </div>
     </>
