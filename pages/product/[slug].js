@@ -10,15 +10,16 @@ import Product from "@/Models/Product";
 import db from "@/utils/db";
 import { Store } from "@/utils/Store";
 
-export default function ProductScreen(props) {
+function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
+  
+  const [activeImg, setActiveImage] = useState(product.image);
+  
   if (!product) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;
   }
-
-  const [activeImg, setActiveImage] = useState(product.image);
 
   const thumbnailImages = [
     product.img2,
@@ -130,3 +131,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+export default ProductScreen;
