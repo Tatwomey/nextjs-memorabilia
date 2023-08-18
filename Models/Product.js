@@ -10,6 +10,7 @@ const productSchema = new mongoose.Schema(
     img3: { type: String, required: false },
     img4: { type: String, required: false },
     price: { type: Number, required: true },
+    condition: { type: Number, required: false},
     brand: { type: String, required: true },
     rating: { type: Number, required: true, default: 0 },
     numReviews: { type: Number, required: true, default: 0 },

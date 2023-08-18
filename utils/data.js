@@ -92,7 +92,7 @@ const data = {
       image: "/images/blind1.jpeg",
       img2: "/images/blind2.jpeg",
       img3: "/images/blind3.jpeg",
-      imag4: "/images/blind3.jpeg",
+      img4: "/images/blind4.jpeg",
       price: 75,
       brand: "Casely",
       rating: 4.5,

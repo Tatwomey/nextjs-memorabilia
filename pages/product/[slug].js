@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import Layout from "@/components/Layout";
 import Product from "@/Models/Product";
@@ -17,6 +17,18 @@ export default function ProductScreen(props) {
   if (!product) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;
   }
+
+  const [activeImg, setActiveImage] = useState(product.image);
+
+  const thumbnailImages = [
+    product.img2,
+    product.img3,
+    product.img4
+  ];
+
+  const handleThumbnailClick = (image) => {
+    setActiveImage(image);
+  };
 
   const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
@@ -40,12 +52,34 @@ export default function ProductScreen(props) {
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
         <div className="md:col-span-2">
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={640}
-            height={640}
-            layout="responsive"></Image>
+          <div className="flex flex-col items-center">
+            <Image
+              src={activeImg}
+              alt={product.name}
+              width={640}
+              height={640}
+              priority
+            />
+            <br /> {/* Add line breaks */}
+            <br />
+            <div className="mt-4 flex justify-between space-x-4">
+              {thumbnailImages.map((thumbnail, index) => (
+                <div
+                  key={index}
+                  className="cursor-pointer"
+                  onClick={() => handleThumbnailClick(thumbnail)}
+                >
+                  <Image
+                    src={thumbnail}
+                    alt={`Thumbnail ${index + 2}`}
+                    width={120} // Make thumbnails 2x larger
+                    height={120}
+                    className="w-16 h-16" // Adjusted width and height
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <div>
           <ul>
@@ -72,7 +106,8 @@ export default function ProductScreen(props) {
             </div>
             <button
               className="primary-button w-full"
-              onClick={addToCartHandler}>
+              onClick={addToCartHandler}
+            >
               Add to cart
             </button>
           </div>
