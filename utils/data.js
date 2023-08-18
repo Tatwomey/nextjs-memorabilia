@@ -24,6 +24,7 @@ const data = {
       image: "/images/photo1.jpg",
       width: 1000,
       price: 200,
+      brand: 'Korn',
       countInStock: 20,
       description:
         ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
@@ -37,6 +38,7 @@ const data = {
       category: "Urban Landscape",
       image: "/images/photo6.png",
       price: 75,
+      brand: "Urban Landscape",
       countInStock: 20,
       description:
         'A popular print "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
@@ -74,7 +76,7 @@ const data = {
       name: "Munk-Gltch",
       slug: "munk-glitch",
       category: "Music",
-      image: "/images/photo4.jpg",
+      image: "/images/munk-gitch.png",
       price: 250,
       brand: "James Munky Shaffer",
       rating: 4.5,
@@ -82,22 +84,10 @@ const data = {
       countInStock: 20,
       description: "Signed and numbered - Edition of 20 printed on Photo Rag",
     },
-    {
-      name: "Munk-Glitch Original",
-      slug: "munky-glitch",
-      category: "Print",
-      image: "/images/munk-glitch.png",
-      price: 95,
-      brand: "James Munky Shaffer (KORN)",
-      rating: 4.5,
-      numReviews: 10,
-      countInStock: 20,
-      description:
-        'A popular print "16x20" on Hahnemühle Photo Rag Metallic Paper.',
-    },
+    
     {
       name: "Gotham City",
-      slug: "classic-pants",
+      slug: "gotham-city",
       category: "Urban Landscape",
       image: "/images/photo6.png",
       price: 75,
