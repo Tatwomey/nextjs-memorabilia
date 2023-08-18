@@ -24,7 +24,7 @@ const data = {
       image: "/images/photo1.jpg",
       width: 1000,
       price: 200,
-      brand: 'Korn',
+      brand: "Korn",
       countInStock: 20,
       description:
         ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
@@ -84,19 +84,21 @@ const data = {
       countInStock: 20,
       description: "Signed and numbered - Edition of 20 printed on Photo Rag",
     },
-    
+
     {
-      name: "Gotham City",
-      slug: "gotham-city",
-      category: "Urban Landscape",
-      image: "/images/photo6.png",
+      name: "Blind",
+      slug: "korn-blind-promo-cd",
+      category: "promo-cd",
+      image: "/images/blind1.jpeg",
+      img2: "/images/blind2.jpeg",
+      img3: "/images/blind3.jpeg",
+      imag4: "/images/blind3.jpeg",
       price: 75,
       brand: "Casely",
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,
-      description:
-        'A popular print "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+      description: "A popular promo cd",
     },
   ],
 };
