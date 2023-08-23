@@ -100,6 +100,22 @@ const data = {
       countInStock: 20,
       description: "A popular promo cd",
     },
+    {
+      name: "KORN 'Requiem Cassette 'silver' version",
+      slug: "korn-requiem-cassette-silver",
+      category: "music",
+      image: "/images/requeim_silver-3.jpg",
+      img2: "/images/requeim_silver-2.jpg",
+      img3: "/images/requeim_silver-1.jpg",
+      img4: "/images/requeim_silver-3.jpg",
+      price: 75,
+      brand: "Korn",
+      rating: 4.5,
+      numReviews: 10,
+      countInStock: 20,
+      description:
+        "Limited Edition Metallic Shell Cassette (Edition of 500 units worldwide)",
+    },
   ],
 };
 
