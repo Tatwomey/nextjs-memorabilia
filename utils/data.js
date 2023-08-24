@@ -41,6 +41,17 @@ const data = {
       description:
         "Uber rare Dansk 10 track remix promo CD in plastic sleeve",
     },
+    {
+      name: "Korn - Get Up! - Dansk Promo",
+      slug: "korngetupdanish",
+      category: "promo CD",
+      image: "/images/korn_getup_dasnk.png",
+      price: 40,
+      brand: "Korn",
+      countInStock: 1,
+      description:
+        "Uber rare Dansk  promo CD in plastic sleeve",
+    },
 
     {
       name: "Requiem LP (coke bottle clear)",
