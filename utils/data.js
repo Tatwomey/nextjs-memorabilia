@@ -18,19 +18,32 @@ const data = {
   ],
   products: [
     {
-      name: "Jonathan Davis - Live at Jones Beach",
-      slug: "jd-1",
-      category: "Music",
-      image: "/images/photo1.jpg",
-      width: 1000,
-      price: 200,
+      name: "Korn Featuring Skrillex, Kill The Noise – Narcissistic Cannibal",
+      slug: "narcissistic Cannibal EU promo CD",
+      category: "promo CD",
+      image: "/images/Kornnarc.png",
+      img2: "/images/Kornnarc1.png",
+      img3: "/images/Kornnarc3.png",
+      price: 13,
       brand: "Korn",
-      countInStock: 20,
+      countInStock: 1,
       description:
-        ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
+        'European 1 track CD single in cardsleeve case',
       isFeatured: true,
       banner: "/images/baner1.jpg",
     },
+    {
+      name: "Korn Featuring Skrillex, Kill The Noise – Narcissistic Cannibal - 10 track CD",
+      slug: "narcissistic Cannibal dansk promo CD",
+      category: "promo CD",
+      image: "/images/KORNDEN10.JPG",
+      price: 13,
+      brand: "Korn",
+      countInStock: 1,
+      description:
+        "Uber rare Dansk 10 track remix promo CD in plastic sleeve"
+    },
+
     {
       name: "Requiem LP (coke bottle clear)",
       slug: "kornrequiemcokebottleclear",
