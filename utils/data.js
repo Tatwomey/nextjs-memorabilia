@@ -19,7 +19,7 @@ const data = {
   products: [
     {
       name: "Korn Featuring Skrillex, Kill The Noise – Narcissistic Cannibal",
-      slug: "narcissistic Cannibal EU promo CD",
+      slug: "Narckorneu",
       category: "promo CD",
       image: "/images/Kornnarc.png",
       img2: "/images/Kornnarc1.png",
@@ -29,19 +29,17 @@ const data = {
       countInStock: 1,
       description:
         'European 1 track CD single in cardsleeve case',
-      isFeatured: true,
-      banner: "/images/baner1.jpg",
     },
     {
-      name: "Korn Featuring Skrillex, Kill The Noise – Narcissistic Cannibal - 10 track CD",
-      slug: "narcissistic Cannibal dansk promo CD",
+      name: "Korn - Narcissistic Cannibal - DANISH PrOMO CD",
+      slug: "narckorndanish",
       category: "promo CD",
-      image: "/images/KORNDEN10.JPG",
-      price: 13,
+      image: "/images/kornnarcdansk.jpg",
+      price: 40,
       brand: "Korn",
       countInStock: 1,
       description:
-        "Uber rare Dansk 10 track remix promo CD in plastic sleeve"
+        "Uber rare Dansk 10 track remix promo CD in plastic sleeve",
     },
 
     {
