@@ -31,7 +31,18 @@ const data = {
       isFeatured: true,
       banner: "/images/baner1.jpg",
     },
+    {
+      name: "Requiem LP (coke bottle clear)",
+      slug: "kornrequiemcokebottleclear",
+      category: "vinyl",
+      image: "/images/requiemlpcokebottleclear.jpg",
+      price: 40.00,
+      brand: "Korn",
+      countInStock: 1,
+      description:
+        "Out of print Wallmart exclusive color way. Mint & Sealed",
 
+    },
     {
       name: "Requiem LP (Revolver Exclusive silver colorway)",
       slug: "Reqsilver",
