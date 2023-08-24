@@ -101,7 +101,7 @@ textarea {
 }
 
 .dropdown-link {
-  @apply flex p-2 hover:bg-black text-white shadow outline-none
+  @apply flex p-2 bg-transparent hover:bg-black text-white shadow outline-none
 }
 
 .alert-error {
