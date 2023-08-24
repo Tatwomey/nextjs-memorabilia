@@ -29,7 +29,7 @@ const data = {
       description:
         ' "16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
       isFeatured: true,
-      banner: "/images/banner1.jpg",
+      banner: "/images/baner1.jpg",
     },
 
     {
@@ -57,7 +57,7 @@ const data = {
       description:
         '"16x20" on Hahnemühle Photo Rag Metallic Paper. Numbered and signed edition of 20.',
       isFeatured: true,
-      banner: "/images/banner2.jpg",
+      banner: "/images/baner2.jpg",
     },
     {
       name: "Ray Luzier double exposure",
@@ -156,7 +156,7 @@ const data = {
       img2: "/images/requeim_silver-2.jpg",
       img3: "/images/requeim_silver-1.jpg",
       img4: "/images/requeim_silver-3.jpg",
-      price: 75,      
+      price: 75,
       brand: "Deftones",
       rating: 4.5,
       numReviews: 10,
