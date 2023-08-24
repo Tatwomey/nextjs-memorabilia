@@ -36,7 +36,7 @@ const data = {
       name: "Requiem LP (Revolver Exclusive silver colorway)",
       slug: "Reqsilver",
       category: "vinyl",
-      image: "/images/kornreqsilver.webp",
+      image: "/images/kornreqsilver copy.jpg",
       price: 50.00,
       brand: "Korn",
       countInStock: 1,
@@ -44,7 +44,7 @@ const data = {
         "Revolver exclusive silver color way. Mint & Sealed - 1000 copies made",
     },
     {
-      name: "Family Forun",
+      name: "Family Forum",
       slug: "family-forum-cd",
       category: "live CD ",
       image: "/images/FamilyForum.png",
