@@ -103,7 +103,7 @@ const data = {
       name: "Korn - Wicked & Twisted",
       slug: "korn-wick-twist",
       category: "live cd",
-      image: "images/korn_wicked_twisted.png",
+      image: "/images/korn_wicked_twisted.png",
       img2: "/images/kornpalace1995back.png",
       img3: "/images/blackonsilver.jpeg",
       img3: "/images/blackonsilver.jpeg",
@@ -142,20 +142,19 @@ const data = {
         
     },
     {
-      name: "DEFTONES OHMS Cassette version",
-      slug: "deftones-ohms-cassette-silver",
+      name: "KORNSTAR",
+      slug: "KORNSTAR",
       category: "music",
-      image: "/images/ohms_silver-2.jpg",
-      img2: "/images/ohms_silver-1.jpg",
-      img3: "/images/ohms_silver-2.jpg",
-      img4: "/images/ohms_silver-3.jpg",
-      price: 75,
-      brand: "Deftones",
+      image: "/images/KORNSTAR.jpeg",
+      img2: "/images/KORNSTARBACK.png",
+     
+      price: 30,
+      brand: "KORN",
       rating: 4.5,
       numReviews: 10,
-      countInStock: 20,
+      countInStock: 1,
       description:
-        "Limited Edition Metallic Shell Cassette (Edition of 300 units worldwide)",
+        "LIVE CDr, UNOFFICIAL RELEASE",
     },
     {
       name: "Requiem 'silver'version cassette ",
