@@ -5,6 +5,6 @@ const handler = async (req, res) => {
   if (!user) {
     return res.status(401).send('signin required');
   }
-  res.send(process.env.PAYPAL_CLIENT_ID || 'AThCgXZqMYsV49_RnrLtGXCycn2p8zC-76ValeT4Wg5v5Cv5XpG0_2llov7UgFlyqWHvkUo5xbF85ejR');
+  res.send(process.env.PAYPAL_CLIENT_ID || 'AXqlyJE8Ov4JyYlbICTj7hcXVsIuOzEMvpJEnfxfvNCs23cRdbiONaU5PraD4nB1aoiaGGpGWRAX3s4Q');
 };
 export default handler;

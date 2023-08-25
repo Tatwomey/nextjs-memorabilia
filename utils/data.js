@@ -118,7 +118,7 @@ const data = {
       category: "promo cassette",
       image: "/images/korn1994front-1.jpg",
       img2: "/images/korn1994back-1.jpg",
-      price: 100,
+      price: 1,
       brand: "Korn",
       rating: 4.5,
       numReviews: 10,
