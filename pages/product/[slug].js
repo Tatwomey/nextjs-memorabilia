@@ -24,7 +24,7 @@ function ProductScreen(props) {
   const thumbnailImages = [
     product.img2,
     product.img3,
-    product.img4
+    product.img4,
   ];
 
   const handleThumbnailClick = (image) => {
