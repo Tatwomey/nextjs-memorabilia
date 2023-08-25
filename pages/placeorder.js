@@ -22,7 +22,7 @@ export default function PlaceOrderScreen() {
   ); // 123.4567 => 123.46
 
   const shippingPrice = itemsPrice > 20 ? 0 : 7;
-  const taxPrice = round2(itemsPrice * 0.09);
+  const taxPrice = round2(itemsPrice * 0.01);
   const totalPrice = round2(itemsPrice + shippingPrice + taxPrice);
 
   const router = useRouter();
