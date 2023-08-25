@@ -37,7 +37,7 @@ function ProductScreen(props) {
     const { data } = await axios.get(`/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
-      return toast.error("Sorry. Product is out of stock");
+      return toast.error("Sorry homie. This shit is sold out already");
     }
 
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
