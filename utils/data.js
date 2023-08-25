@@ -116,7 +116,7 @@ const data = {
       name: "Korn - 2 track cassette, 1994",
       slug: "korn-blind-clown",
       category: "promo cassette",
-      image: "/images/korn1994back-1.jpg",
+      image: "/images/korn1994front-1.jpg",
       img2: "/images/korn1994back-1.jpg",
       price: 100,
       brand: "Korn",
