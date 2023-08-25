@@ -27,8 +27,7 @@ const data = {
       price: 13,
       brand: "Korn",
       countInStock: 1,
-      description:
-        'European 1 track CD single in cardsleeve case',
+      description: "European 1 track CD single in cardsleeve case",
     },
     {
       name: "Korn - Narcissistic Cannibal - DANISH PrOMO CD",
@@ -38,8 +37,7 @@ const data = {
       price: 40,
       brand: "Korn",
       countInStock: 1,
-      description:
-        "Uber rare Dansk 10 track remix promo CD in plastic sleeve",
+      description: "Uber rare Dansk 10 track remix promo CD in plastic sleeve",
     },
     {
       name: "Korn - Get Up! - Dansk Promo",
@@ -49,8 +47,7 @@ const data = {
       price: 40,
       brand: "Korn",
       countInStock: 1,
-      description:
-        "Uber rare Dansk  promo CD in plastic sleeve",
+      description: "Uber rare Dansk  promo CD in plastic sleeve",
     },
 
     {
@@ -58,23 +55,32 @@ const data = {
       slug: "kornrequiemcokebottleclear",
       category: "vinyl",
       image: "/images/requiemlpcokebottleclear.jpg",
-      price: 40.00,
+      price: 40.0,
       brand: "Korn",
       countInStock: 1,
-      description:
-        "Out of print Wallmart exclusive color way. Mint & Sealed",
-
+      description: "Out of print Wallmart exclusive color way. Mint & Sealed",
     },
     {
       name: "Requiem LP (Revolver Exclusive silver colorway)",
       slug: "Reqsilver",
       category: "vinyl",
       image: "/images/kornreqsilver copy.jpg",
-      price: 50.00,
+      price: 50.0,
       brand: "Korn",
       countInStock: 1,
       description:
         "Revolver exclusive silver color way. Mint & Sealed - 1000 copies made",
+    },
+    {
+      name: "Creep 1-track promo CD",
+      slug: "korncreep1track",
+      category: "CDr Advance promo",
+      image: "/images/korn_creep_1track_promo_cd.jpg",
+      price: 50.0,
+      brand: "Korn",
+      countInStock: 1,
+      description:
+       "Rare Virgin Records advance promo of the acoustic rendition taken from MTV Unplugged",
     },
     {
       name: "Family Forum",
@@ -89,7 +95,7 @@ const data = {
       numReviews: 10,
       countInStock: 1,
       description:
-      "Tracks 1-8 L.A. Shrine Auditorium 12-11-98, Tracks 9-16 Live at The Forum 1998",
+        "Tracks 1-8 L.A. Shrine Auditorium 12-11-98, Tracks 9-16 Live at The Forum 1998",
       isFeatured: true,
       banner: "/images/baner2.jpg",
     },
@@ -98,12 +104,13 @@ const data = {
       slug: "korn-FOAL-Dante",
       category: "Promo CD",
       image: "/images/kornfreakdante-1.JPG",
-      price: 20.00,
+      price: 20.0,
       brand: "Korn",
       rating: 4.5,
       numReviews: 10,
       countInStock: 1,
-      description: "Rare 1 track remix cd for Freak On A Leash (Dante Ross Remix). Item released with no front or back insert"
+      description:
+        "Rare 1 track remix cd for Freak On A Leash (Dante Ross Remix). Item released with no front or back insert",
     },
     {
       name: "Munk-Gltch",
@@ -138,7 +145,7 @@ const data = {
       slug: "korn-wick-twist",
       category: "live cd",
       image: "/images/korn_wicked_twisted.png",
-      img2:"/images/wickedandtwistedback-1.JPG",
+      img2: "/images/wickedandtwistedback-1.JPG",
       img3: "/images/blackonsilver.jpeg",
       img3: "/images/blackonsilver.jpeg",
       price: 40,
@@ -153,7 +160,7 @@ const data = {
       slug: "OHMSbundle",
       category: "Limited Edition cassette bundle",
       image: "/images/deftones_ohms_casette_bundle.jpg",
-    
+
       price: 150,
       brand: "Deftones",
       rating: 4.5,
@@ -173,7 +180,6 @@ const data = {
       numReviews: 10,
       countInStock: 1,
       description: "Family Values 1998 full length cassette (SEALED!)",
-        
     },
     {
       name: "KORNSTAR",
@@ -181,14 +187,13 @@ const data = {
       category: "music",
       image: "/images/KORNSTAR.jpeg",
       img2: "/images/KORNSTARBACK.png",
-     
+
       price: 30,
       brand: "KORN",
       rating: 4.5,
       numReviews: 10,
       countInStock: 1,
-      description:
-        "LIVE CDr, UNOFFICIAL RELEASE",
+      description: "LIVE CDr, UNOFFICIAL RELEASE",
     },
     {
       name: "Requiem 'silver'version cassette ",
