@@ -107,7 +107,7 @@ const data = {
       description:
         "Tracks 1-8 L.A. Shrine Auditorium 12-11-98, Tracks 9-16 Live at The Forum 1998",
       isFeatured: true,
-      banner: "/images/baner2.jpg",
+      banner: "/images/IMG_5796.jpg",
     },
     {
       name: "Korn - Freak On a Leash (REMIX)",
