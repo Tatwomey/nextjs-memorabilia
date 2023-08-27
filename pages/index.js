@@ -12,6 +12,8 @@ import 'react-responsive-carousel/lib/styles/carousel.css';
 import Link from 'next/link';
 
 
+
+
 const Home = ({ products, featuredProducts }) => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
