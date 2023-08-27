@@ -33,7 +33,15 @@ const Home = ({ products, featuredProducts }) => {
 
   return (
     <Layout title="Nu Memorabilia">
-      
+      <Carousel showThumbs={false} autoPlay>
+        {featuredProducts.map((product) => (
+          <div key={product._id}>
+            <Link href={`/product/${product.slug}`} passHref className="flex">
+              <img src={product.banner} alt={product.name} />
+            </Link>
+          </div>
+        ))}
+      </Carousel>
       <h2 className="h2 my-4">Latest Products</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
@@ -55,7 +63,7 @@ export default function HomePage(props) {
 export async function getServerSideProps() {
   await db.connect();
   const products = await Product.find().lean();
-  const featuredProducts = await Product.find({ isFeatured: true }).lean();
+  const featuredProducts = await Product.find({ isFeatured: false }).lean();
   return {
     props: {
       featuredProducts: featuredProducts.map(db.convertDocToObj),
