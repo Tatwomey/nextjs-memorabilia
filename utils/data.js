@@ -18,6 +18,16 @@ const data = {
   ],
   products: [
     {
+      name: "SEPULTURA 33 RPM 12 inch - Beneath The Remains 2LP ORANGE & YELLOW VINYL LMTD SEALED",
+
+      slug: "beneaththeremains",
+      category: "Vinyl",
+      image: "/images/s-l1600.png",
+      price: 40,
+      brand: "Korn",
+      countInStock: 1,
+      description: "1500 copies made!",
+    }, {
       name: "Korn Featuring Skrillex, Kill The Noise – Narcissistic Cannibal",
       slug: "Narckorneu",
       category: "promo CD",
