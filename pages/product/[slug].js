@@ -14,18 +14,14 @@ function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
-  
+
   const [activeImg, setActiveImage] = useState(product.image);
-  
+
   if (!product) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;
   }
 
-  const thumbnailImages = [
-    product.img2,
-    product.img3,
-    product.img4,
-  ];
+  const thumbnailImages = [product.img2, product.img3, product.img4];
 
   const handleThumbnailClick = (image) => {
     setActiveImage(image);
@@ -68,8 +64,7 @@ function ProductScreen(props) {
                 <div
                   key={index}
                   className="cursor-pointer"
-                  onClick={() => handleThumbnailClick(thumbnail)}
-                >
+                  onClick={() => handleThumbnailClick(thumbnail)}>
                   <Image
                     src={thumbnail}
                     alt={`Thumbnail ${index + 2}`}
@@ -88,7 +83,7 @@ function ProductScreen(props) {
               <h1 className="text-lg">{product.name}</h1>
             </li>
             <li>Category: {product.category}</li>
-            <li>Brand: {product.brand}</li>
+            <li>band: {product.band}</li>
             <li>
               {product.rating} of {product.numReviews} reviews
             </li>
@@ -107,8 +102,7 @@ function ProductScreen(props) {
             </div>
             <button
               className="primary-button w-full"
-              onClick={addToCartHandler}
-            >
+              onClick={addToCartHandler}>
               Add to cart
             </button>
           </div>

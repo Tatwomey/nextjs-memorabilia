@@ -1,30 +1,30 @@
 /** @format */
 
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { useContext } from 'react';
-import { toast } from 'react-toastify';
-import Layout from '@/components/Layout';
-import { Store } from '@/utils/Store';
-import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
-import ProductItem from '@/components/ProductItem';
-import Product from '@/Models/Product';
-import db from '@/utils/db';
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import Layout from "@/components/Layout";
+import { Store } from "@/utils/Store";
+import XCircleIcon from "@heroicons/react/24/outline/XCircleIcon";
+import ProductItem from "@/components/ProductItem";
+import Product from "@/Models/Product";
+import db from "@/utils/db";
 
 const PAGE_SIZE = 2;
 
 const prices = [
   {
-    name: '$1 to $50',
-    value: '1-50',
+    name: "$1 to $50",
+    value: "1-50",
   },
   {
-    name: '$51 to $200',
-    value: '51-200',
+    name: "$51 to $200",
+    value: "51-200",
   },
   {
-    name: '$201 to $1000',
-    value: '201-1000',
+    name: "$201 to $1000",
+    value: "201-1000",
   },
 ];
 
@@ -34,21 +34,21 @@ export default function Search(props) {
   const router = useRouter();
 
   const {
-    query = 'all',
-    category = 'all',
-    brand = 'all',
-    price = 'all',
-    rating = 'all',
-    sort = 'featured',
+    query = "all",
+    category = "all",
+    band = "all",
+    price = "all",
+    rating = "all",
+    sort = "featured",
     page = 1,
   } = router.query;
 
-  const { products, countProducts, categories, brands, pages } = props;
+  const { products, countProducts, categories, bands, pages } = props;
 
   const filterSearch = ({
     page,
     category,
-    brand,
+    band,
     sort,
     min,
     max,
@@ -61,7 +61,7 @@ export default function Search(props) {
     if (searchQuery) query.searchQuery = searchQuery;
     if (sort) query.sort = sort;
     if (category) query.category = category;
-    if (brand) query.brand = brand;
+    if (band) query.band = band;
     if (price) query.price = price;
     if (rating) query.rating = rating;
     if (min) query.min ? query.min : query.min === 0 ? 0 : min;
@@ -78,8 +78,8 @@ export default function Search(props) {
   const pageHandler = (page) => {
     filterSearch({ page });
   };
-  const brandHandler = (e) => {
-    filterSearch({ brand: e.target.value });
+  const bandHandler = (e) => {
+    filterSearch({ band: e.target.value });
   };
   const sortHandler = (e) => {
     filterSearch({ sort: e.target.value });
@@ -97,11 +97,11 @@ export default function Search(props) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
-      toast.error('Sorry. Product is out of stock');
+      toast.error("Sorry. Product is out of stock");
       return;
     }
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-    router.push('/cart');
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+    router.push("/cart");
   };
   return (
     <Layout title="search">
@@ -112,8 +112,7 @@ export default function Search(props) {
             <select
               className="w-full"
               value={category}
-              onChange={categoryHandler}
-            >
+              onChange={categoryHandler}>
               <option value="all">All</option>
               {categories &&
                 categories.map((category) => (
@@ -124,19 +123,23 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <p><h2>Brands</h2></p>
-            <select className="w-full" value={brand} onChange={brandHandler}>
+            <p>
+              <h2>bands</h2>
+            </p>
+            <select className="w-full" value={band} onChange={bandHandler}>
               <option value="all">All</option>
-              {brands &&
-                brands.map((brand) => (
-                  <option key={brand} value={brand}>
-                    {brand}
+              {bands &&
+                bands.map((band) => (
+                  <option key={band} value={band}>
+                    {band}
                   </option>
                 ))}
             </select>
           </div>
           <div className="mb-3">
-           <p><h2>Prices</h2></p>
+            <p>
+              <h2>Prices</h2>
+            </p>
             <select className="w-full" value={price} onChange={priceHandler}>
               <option value="all">All</option>
               {prices &&
@@ -148,13 +151,15 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <p><h2>Ratings</h2></p>
+            <p>
+              <h2>Ratings</h2>
+            </p>
             <select className="w-full" value={rating} onChange={ratingHandler}>
               <option value="all">All</option>
               {ratings &&
                 ratings.map((rating) => (
                   <option key={rating} value={rating}>
-                    {rating} star{rating > 1 && 's'} & up
+                    {rating} star{rating > 1 && "s"} & up
                   </option>
                 ))}
             </select>
@@ -163,25 +168,25 @@ export default function Search(props) {
         <div className="md:col-span-3">
           <div className="mb-2 flex items-center justify-between border-b-2 pb-2">
             <div className="flex items-center">
-              {products.length === 0 ? 'No' : countProducts} Results
-              {query !== 'all' && query !== '' && ' : ' + query}
-              {category !== 'all' && ' : ' + category}
-              {brand !== 'all' && ' : ' + brand}
-              {price !== 'all' && ' : Price ' + price}
-              {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+              {products.length === 0 ? "No" : countProducts} Results
+              {query !== "all" && query !== "" && " : " + query}
+              {category !== "all" && " : " + category}
+              {band !== "all" && " : " + band}
+              {price !== "all" && " : Price " + price}
+              {rating !== "all" && " : Rating " + rating + " & up"}
               &nbsp;
-              {(query !== 'all' && query !== '') ||
-              category !== 'all' ||
-              brand !== 'all' ||
-              rating !== 'all' ||
-              price !== 'all' ? (
-                <button onClick={() => router.push('/search')}>
+              {(query !== "all" && query !== "") ||
+              category !== "all" ||
+              band !== "all" ||
+              rating !== "all" ||
+              price !== "all" ? (
+                <button onClick={() => router.push("/search")}>
                   <XCircleIcon className="h-5 w-5" />
                 </button>
               ) : null}
             </div>
             <div>
-              Sort by{' '}
+              Sort by{" "}
               <select value={sort} onChange={sortHandler}>
                 <option value="featured">Featured</option>
                 <option value="lowest">Price: Low to High</option>
@@ -207,10 +212,9 @@ export default function Search(props) {
                   <li key={pageNumber}>
                     <button
                       className={`default-button m-2 ${
-                        page == pageNumber + 1 ? 'font-bold' : ''
+                        page == pageNumber + 1 ? "font-bold" : ""
                       } `}
-                      onClick={() => pageHandler(pageNumber + 1)}
-                    >
+                      onClick={() => pageHandler(pageNumber + 1)}>
                       {pageNumber + 1}
                     </button>
                   </li>
@@ -226,26 +230,26 @@ export default function Search(props) {
 export async function getServerSideProps({ query }) {
   const pageSize = query.pageSize || PAGE_SIZE;
   const page = query.page || 1;
-  const category = query.category || '';
-  const brand = query.brand || '';
-  const price = query.price || '';
-  const rating = query.rating || '';
-  const sort = query.sort || '';
-  const searchQuery = query.query || '';
+  const category = query.category || "";
+  const band = query.band || "";
+  const price = query.price || "";
+  const rating = query.rating || "";
+  const sort = query.sort || "";
+  const searchQuery = query.query || "";
 
   const queryFilter =
-    searchQuery && searchQuery !== 'all'
+    searchQuery && searchQuery !== "all"
       ? {
           name: {
             $regex: searchQuery,
-            $options: 'i',
+            $options: "i",
           },
         }
       : {};
-  const categoryFilter = category && category !== 'all' ? { category } : {};
-  const brandFilter = brand && brand !== 'all' ? { brand } : {};
+  const categoryFilter = category && category !== "all" ? { category } : {};
+  const bandFilter = band && band !== "all" ? { band } : {};
   const ratingFilter =
-    rating && rating !== 'all'
+    rating && rating !== "all"
       ? {
           rating: {
             $gte: Number(rating),
@@ -254,39 +258,39 @@ export async function getServerSideProps({ query }) {
       : {};
   // 10-50
   const priceFilter =
-    price && price !== 'all'
+    price && price !== "all"
       ? {
           price: {
-            $gte: Number(price.split('-')[0]),
-            $lte: Number(price.split('-')[1]),
+            $gte: Number(price.split("-")[0]),
+            $lte: Number(price.split("-")[1]),
           },
         }
       : {};
   const order =
-    sort === 'featured'
+    sort === "featured"
       ? { isFeatured: -1 }
-      : sort === 'lowest'
+      : sort === "lowest"
       ? { price: 1 }
-      : sort === 'highest'
+      : sort === "highest"
       ? { price: -1 }
-      : sort === 'toprated'
+      : sort === "toprated"
       ? { rating: -1 }
-      : sort === 'newest'
+      : sort === "newest"
       ? { createdAt: -1 }
       : { _id: -1 };
 
   await db.connect();
-  const categories = await Product.find().distinct('category');
-  const brands = await Product.find().distinct('brand');
+  const categories = await Product.find().distinct("category");
+  const bands = await Product.find().distinct("band");
   const productDocs = await Product.find(
     {
       ...queryFilter,
       ...categoryFilter,
       ...priceFilter,
-      ...brandFilter,
+      ...bandFilter,
       ...ratingFilter,
     },
-    '-reviews'
+    "-reviews"
   )
     .sort(order)
     .skip(pageSize * (page - 1))
@@ -297,7 +301,7 @@ export async function getServerSideProps({ query }) {
     ...queryFilter,
     ...categoryFilter,
     ...priceFilter,
-    ...brandFilter,
+    ...bandFilter,
     ...ratingFilter,
   });
 
@@ -311,7 +315,7 @@ export async function getServerSideProps({ query }) {
       page,
       pages: Math.ceil(countProducts / pageSize),
       categories,
-      brands,
+      bands,
     },
   };
 }

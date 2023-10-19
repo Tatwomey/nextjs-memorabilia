@@ -1,21 +1,21 @@
-import { getToken } from 'next-auth/jwt';
-import Product from '@/Models/Product';
-import db from '@/utils/db';
+import { getToken } from "next-auth/jwt";
+import Product from "@/Models/Product";
+import db from "@/utils/db";
 
 const handler = async (req, res) => {
   const user = await getToken({ req });
   if (!user || (user && !user.isAdmin)) {
-    return res.status(401).send('signin required');
+    return res.status(401).send("signin required");
   }
 
-  if (req.method === 'GET') {
+  if (req.method === "GET") {
     return getHandler(req, res, user);
-  } else if (req.method === 'PUT') {
+  } else if (req.method === "PUT") {
     return putHandler(req, res, user);
-  } else if (req.method === 'DELETE') {
+  } else if (req.method === "DELETE") {
     return deleteHandler(req, res, user);
   } else {
-    return res.status(400).send({ message: 'Method not allowed' });
+    return res.status(400).send({ message: "Method not allowed" });
   }
 };
 
@@ -35,15 +35,15 @@ const putHandler = async (req, res) => {
     product.price = req.body.price;
     product.category = req.body.category;
     product.image = req.body.image;
-    product.brand = req.body.brand;
+    product.band = req.body.band;
     product.countInStock = req.body.countInStock;
     product.description = req.body.description;
     await product.save();
     await db.disconnect();
-    res.send({ message: 'Product updated successfully' });
+    res.send({ message: "Product updated successfully" });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Product not found' });
+    res.status(404).send({ message: "Product not found" });
   }
 };
 
@@ -53,10 +53,10 @@ const deleteHandler = async (req, res) => {
   if (product) {
     await product.remove();
     await db.disconnect();
-    res.send({ message: 'Product deleted successfully' });
+    res.send({ message: "Product deleted successfully" });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Product not found' });
+    res.status(404).send({ message: "Product not found" });
   }
 };
 
