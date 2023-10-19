@@ -5,7 +5,7 @@ export default function DropdownLink(props) {
   let { href, children, ...rest } = props;
 
   return (
-    <Link href={href} {...rest}>
+    <Link href={href} className="dropdown-link" {...rest}>
       {children}
     </Link>
   );

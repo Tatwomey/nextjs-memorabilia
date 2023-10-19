@@ -98,8 +98,13 @@ input, select, textarea {
 }
 
 .dropdown-link {
-  @apply flex p-2 bg-transparent hover:bg-black text-white shadow outline-none;
+  @apply flex p-2 bg-black text-white shadow outline-none;
 }
+
+.dropdown-link:hover {
+  @apply bg-white text-black;
+}
+
 
 .alert-error {
   @apply my-3 rounded-lg bg-red-100 p-3 text-red-700;
