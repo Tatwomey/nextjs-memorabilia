@@ -1,5 +1,6 @@
 /** @format */
 import bcrypt from "bcryptjs";
+import { Printer } from "heroicons-react";
 
 const data = {
   users: [
@@ -17,6 +18,18 @@ const data = {
     },
   ],
   products: [
+
+    { name: "Brian Head Welch Kaged 11x19 glossy print",
+    slug:"brianbw",
+    category:"Print",
+    image: "http://",
+    price: 40,
+    brand: "Korn",
+    countInStock: 20,
+    description: "Super-B glossy paper numbered and signed edition of 20",
+  },
+
+
     {
       name: "SEPULTURA 33 RPM 12 inch - Beneath The Remains 2LP ORANGE & YELLOW VINYL LMTD SEALED",
 

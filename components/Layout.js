@@ -42,7 +42,7 @@ export default function Layout({ title, children }) {
   return (
     <>
      <Head>
-  <title>{title ? title + ' - Amazona' : 'Trevor Twomey'}</title>
+  <title>{title ? title + 'Nu-Memorabilia' : 'Trevor Twomey'}</title>
   <meta name="description" content="Nu Metal Memorabilia" />
   <link rel="icon" href="/images/Watermarklogo 3.png" />
 </Head>
