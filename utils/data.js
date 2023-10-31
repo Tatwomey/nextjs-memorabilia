@@ -5,9 +5,9 @@ import { Printer } from "heroicons-react";
 const data = {
   users: [
     {
-      name: "Andrew",
-      email: "andrew@gmail.com",
-      password: bcrypt.hashSync("andrew123"),
+      name: "Diego",
+      email: "diego.branco@gmail.com",
+      password: bcrypt.hashSync("Numetaldiego"),
       isAdmin: true,
     },
     {
@@ -134,19 +134,7 @@ const data = {
       countInStock: 1,
       description: "A popular promo cd",
     },
-    {
-      name: "DEFTONES OHMS Cassette Bundle!",
-      slug: "OHMSbundle",
-      category: "cassette tape",
-      image: "/images/deftones_ohms_casette_bundle.jpg",
-      price: 150,
-      band: "Deftones",
-      rating: 4.5,
-      numReviews: 10,
-      countInStock: 1,
-      description:
-        "Limited Edition Green, silver & pink Cassette variants (300 copies made per color) ",
-    },
+    
     {
       name: "Family Values Tour 1998 cassette tape",
       slug: "FamilyValues98cassette",
@@ -190,7 +178,7 @@ const data = {
 {name: "Deftones Ohms bundle",
 slug: "ohms-tapes",
 category: "cassette tape",
- band: "Deftones",
+ band: "Los Stellarians",
  image: '/images/deftones_ohms_casette_bundle.jpg',
 rating: 4.5,
  numReviews: 10,
